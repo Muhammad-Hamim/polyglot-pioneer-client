@@ -3,9 +3,24 @@ import logo from "../../assets/logo.png";
 import { FaBars, FaUser } from "react-icons/fa";
 import { Sidebar } from "primereact/sidebar";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const user = true;
+  const { user, logOut } = useAuth();
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have been successfully logged out",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
   const navItem = (
     <>
       <li className="hover:text-primary duration-150">
@@ -47,7 +62,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            {!user ? (
+            {user ? (
               <div className=" space-x-6 flex items-center">
                 <div className="dropdown dropdown-end">
                   <label className="avatar" tabIndex={0}>
@@ -59,10 +74,10 @@ const Navbar = () => {
                     tabIndex={0}
                     className="menu menu-md dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
-                      <button>Name</button>
+                      <button>{user.displayName}</button>
                     </li>
                     <li>
-                      <button>Email</button>
+                      <button>{user.email}</button>
                     </li>
                     <li>
                       <NavLink to="/profile">
@@ -75,7 +90,7 @@ const Navbar = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <button>Logout</button>
+                      <button onClick={handleLogout}>Logout</button>
                     </li>
                   </ul>
                 </div>

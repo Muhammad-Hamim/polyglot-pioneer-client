@@ -1,6 +1,6 @@
 import footerBg from "../../assets/cool-background.svg";
 import { Link } from "react-router-dom";
-import logo from "../../assets/favicon.png";
+import logo from "../../assets/logo.png";
 import {
   FaArrowRight,
   FaFacebookF,

@@ -5,19 +5,45 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
+const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 const Register = () => {
-  const { googleSignIn } = useAuth();
+  const { googleSignIn, createUser, updateUserProfile } = useAuth();
+  const imgHostingurl = `https://api.imgbb.com/1/upload?&key=${imgHostingToken}`;
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+    fetch(imgHostingurl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          const { name, email, password } = data;
+          createUser(email, password)
+            .then((result) => {
+              const loggedUser = result.user;
+              console.log(loggedUser);
+              updateUserProfile(name, imgURL).then(() => {
+                const userInfo = { name, email, password, image: imgURL };
+                console.log(userInfo);
+              });
+            })
+            .catch((error) => console.log(error));
+        }
+      });
   };
   const googleLogin = () => {
-    googleSignIn().then(result=>console.log(result.user)).catch(error=>console.log(error))
-  }
+    googleSignIn()
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
+  };
   return (
     <>
       <Helmet>
@@ -50,13 +76,13 @@ const Register = () => {
                 <span className="label-text">Photo</span>
               </label>
               <input
-                {...register("photo", { required: true })}
+                {...register("image", { required: true })}
                 type="file"
                 placeholder="Your photo"
                 className="file-input file-input-bordered focus:file-input-primary w-full"
               />
 
-              {errors.photo?.type === "required" && (
+              {errors.image?.type === "required" && (
                 <p role="alert" className="text-red-400 mt-3">
                   Photo is required
                 </p>

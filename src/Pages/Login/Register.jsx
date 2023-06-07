@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
+  const { googleSignIn } = useAuth();
   const {
     register,
     formState: { errors },
@@ -13,6 +15,9 @@ const Register = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const googleLogin = () => {
+    googleSignIn().then(result=>console.log(result.user)).catch(error=>console.log(error))
+  }
   return (
     <>
       <Helmet>
@@ -108,7 +113,7 @@ const Register = () => {
           <div className="flex flex-col w-full mt-8 border-opacity-50">
             <div className="divider">OR</div>
             <div className="grid rounded-box place-items-center">
-              <button className="btn btn-circle text-3xl">
+              <button onClick={googleLogin} className="btn btn-circle text-3xl">
                 <FcGoogle />
               </button>
             </div>

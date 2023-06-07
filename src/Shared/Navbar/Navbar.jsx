@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUser } from "react-icons/fa";
 import { Sidebar } from "primereact/sidebar";
 import { useState } from "react";
 const Navbar = () => {
@@ -8,22 +8,22 @@ const Navbar = () => {
   const user = true;
   const navItem = (
     <>
-      <li>
+      <li className="hover:text-primary duration-150">
         <NavLink>
           <button>Home</button>
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-primary duration-150">
         <NavLink>
           <button>Instructors</button>
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-primary duration-150">
         <NavLink>
           <button>Classes</button>
         </NavLink>
       </li>
-      <li>
+      <li className="hover:text-primary duration-150">
         <NavLink>
           <button>Contact Us</button>
         </NavLink>
@@ -42,10 +42,12 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div>
-            <ul className=" hidden lg:flex text-lg space-x-4">{navItem}</ul>
+            <ul className=" hidden lg:flex text-lg space-x-4 font-bold">
+              {navItem}
+            </ul>
           </div>
           <div>
-            {user ? (
+            {!user ? (
               <div className=" space-x-6 flex items-center">
                 <div className="dropdown dropdown-end">
                   <label className="avatar" tabIndex={0}>
@@ -87,8 +89,10 @@ const Navbar = () => {
               </div>
             ) : (
               <div className=" space-x-6 flex items-center">
-                <NavLink>
-                  <button className="btn btn-neutral">Login</button>
+                <NavLink to="/login">
+                  <button className="flex items-center gap-2 bg-indigo-600 px-6 py-3 text-white rounded-md">
+                    <FaUser></FaUser> Login
+                  </button>
                 </NavLink>
                 <div className="lg:hidden">
                   <button onClick={() => setVisible(true)} className="text-3xl">

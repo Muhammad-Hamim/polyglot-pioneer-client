@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { FaBars, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { Sidebar } from "primereact/sidebar";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import Hamburger from "hamburger-react";
 const Navbar = () => {
-  const [visible, setVisible] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const { user, logOut } = useAuth();
   const handleLogout = () => {
     logOut()
@@ -96,9 +97,9 @@ const Navbar = () => {
                 </div>
                 <div className="lg:hidden">
                   <button
-                    onClick={() => setVisible(true)}
+                    onClick={() => setOpen(true)}
                     className=" text-3xl">
-                    <FaBars />
+                    <Hamburger toggled={isOpen} toggle={setOpen} />
                   </button>
                 </div>
               </div>
@@ -110,8 +111,8 @@ const Navbar = () => {
                   </button>
                 </NavLink>
                 <div className="lg:hidden">
-                  <button onClick={() => setVisible(true)} className="text-3xl">
-                    <FaBars />
+                  <button onClick={() => setOpen(true)} className="text-3xl">
+                    <Hamburger toggled={isOpen} toggle={setOpen} />
                   </button>
                 </div>
               </div>
@@ -121,7 +122,7 @@ const Navbar = () => {
       </div>
 
       <div className="card flex justify-content-center">
-        <Sidebar visible={visible} onHide={() => setVisible(false)}>
+        <Sidebar visible={isOpen} onHide={() => setOpen(false)}>
           <ul className=" space-y-3 text-lg text-indigo-600 font-semibold">
             {navItem}
           </ul>

@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa";
+import { BsMoonStarsFill } from "react-icons/bs";
+import { LuSunMoon } from "react-icons/lu";
 import { Sidebar } from "primereact/sidebar";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
@@ -9,6 +11,7 @@ import Hamburger from "hamburger-react";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const { user, logOut } = useAuth();
+  const [dark, setDark] = useState(false);
   const handleLogout = () => {
     logOut()
       .then(() => {
@@ -46,6 +49,20 @@ const Navbar = () => {
       </li>
     </>
   );
+  const theme = (
+    <>
+      <button className="text-3xl text-indigo-500" onClick={() => setDark(!dark)}>
+        {dark ? <LuSunMoon /> : <BsMoonStarsFill />}
+      </button>
+    </>
+  );
+  const navIcon = (
+    <div className="lg:hidden">
+      <button onClick={() => setOpen(true)} className=" text-3xl">
+        <Hamburger toggled={isOpen} toggle={setOpen} />
+      </button>
+    </div>
+  );
   return (
     <>
       <div className="py-3 px-8 bg-neutral-200">
@@ -65,6 +82,7 @@ const Navbar = () => {
           <div>
             {user ? (
               <div className=" space-x-6 flex items-center">
+                {theme}
                 <div className="dropdown dropdown-end">
                   <label className="avatar" tabIndex={0}>
                     <div className="w-12 cursor-pointer rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -95,26 +113,17 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="lg:hidden">
-                  <button
-                    onClick={() => setOpen(true)}
-                    className=" text-3xl">
-                    <Hamburger toggled={isOpen} toggle={setOpen} />
-                  </button>
-                </div>
+                {navIcon}
               </div>
             ) : (
               <div className=" space-x-6 flex items-center">
+                {theme}
                 <NavLink to="/login">
                   <button className="flex items-center gap-2 bg-indigo-600 px-6 py-3 text-white rounded-md">
                     <FaUser></FaUser> Login
                   </button>
                 </NavLink>
-                <div className="lg:hidden">
-                  <button onClick={() => setOpen(true)} className="text-3xl">
-                    <Hamburger toggled={isOpen} toggle={setOpen} />
-                  </button>
-                </div>
+                {navIcon}
               </div>
             )}
           </div>

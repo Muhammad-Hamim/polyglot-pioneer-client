@@ -41,19 +41,17 @@ const Login = () => {
           email,
           image: photoURL,
         };
-        fetch(
-          "https://polyglot-pioneers-academy-server-hamimme01-gmailcom.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(userInfo),
-          }
-        )
+        fetch("https://polyglot-pioneers-academy-server.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            console.log(data);
+            if (data.insertedId || data.message) {
               Swal.fire({
                 position: "center",
                 icon: "success",

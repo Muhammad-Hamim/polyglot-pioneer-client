@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import Hero from "../Pages/Home/Hero/Hero";
+import TopCategory from "../Pages/Home/TopCategory/TopCategory";
 
 const Home = () => {
   return (
@@ -6,7 +8,10 @@ const Home = () => {
       <Helmet>
         <title>PPA | Home</title>
       </Helmet>
-      <div></div>
+      <div>
+        <Hero></Hero>
+        <TopCategory></TopCategory>
+      </div>
     </>
   );
 };

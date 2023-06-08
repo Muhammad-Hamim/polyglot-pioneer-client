@@ -35,15 +35,35 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "You have been successfully logged in",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/");
+        const { displayName, email, photoURL } = result.user;
+        const userInfo = {
+          name: displayName,
+          email,
+          image: photoURL,
+        };
+        fetch(
+          "https://polyglot-pioneers-academy-server-hamimme01-gmailcom.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "You have been logged in successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
       })
       .catch((error) => console.log(error));
   };

@@ -2,8 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 const Register = () => {
@@ -13,7 +14,9 @@ const Register = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
@@ -31,17 +34,71 @@ const Register = () => {
               const loggedUser = result.user;
               console.log(loggedUser);
               updateUserProfile(name, imgURL).then(() => {
-                const userInfo = { name, email, password, image: imgURL };
-                console.log(userInfo);
+                const userInfo = { name, email, image: imgURL };
+                fetch(
+                  "https://polyglot-pioneers-academy-server-hamimme01-gmailcom.vercel.app/users",
+                  {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(userInfo),
+                  }
+                )
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.insertedId) {
+                      reset();
+                      Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "User created successfully.",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                      navigate("/");
+                    }
+                  });
               });
             })
             .catch((error) => console.log(error));
         }
       });
   };
-  const googleLogin = () => {
+  const handleGoogleLogin = () => {
     googleSignIn()
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        const { displayName, email, photoURL } = result.user;
+        const userInfo = {
+          name: displayName,
+          email,
+          image: photoURL,
+        };
+        fetch(
+          "https://polyglot-pioneers-academy-server-hamimme01-gmailcom.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
+      })
       .catch((error) => console.log(error));
   };
   return (
@@ -139,7 +196,9 @@ const Register = () => {
           <div className="flex flex-col w-full mt-8 border-opacity-50">
             <div className="divider">OR</div>
             <div className="grid rounded-box place-items-center">
-              <button onClick={googleLogin} className="btn btn-circle text-3xl">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle text-3xl">
                 <FcGoogle />
               </button>
             </div>

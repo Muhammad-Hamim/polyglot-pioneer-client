@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <div className="bg-gray-900">
       <div
-        className="bg-right-top pt-10 bg-contain bg-no-repeat"
+        className="bg-right-top pt-10 bg-contain bg-no-repeat px-8"
         style={{ backgroundImage: `url(${footerBg})` }}>
         <div className="max-w-screen-xl py-8 mx-auto grid md:grid-cols-2 justify-center lg:grid-cols-4 gap-5">
           <div className="">
@@ -147,17 +147,17 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className=" max-w-screen-sm mx-auto py-10 text-center">
+        <div className="lg:max-w-screen-sm mx-auto py-10 text-center">
           <p className="text-gray-200">
             Enter your email address to register to our newsletter subscription
           </p>
-          <div className="flex gap-3 items-center mt-4 w-fit mx-auto">
+          <div className="flex gap-3 items-center mt-4 w-full mx-auto">
             <input
               type="email"
-              className="px-5 py-3 rounded-md outline-none border-[1px] border-indigo-600"
+              className="p-3 rounded-md w-full outline-none border-[1px] border-indigo-600"
               placeholder="Your email"
             />
-            <button className="flex gap-1 items-center bg-indigo-600 rounded-md px-5 py-3 text-gray-100">
+            <button className="flex gap-1 items-center justify-center bg-indigo-600 rounded-md px-5 py-3 text-gray-100">
               Subscribe <FaArrowRight />
             </button>
           </div>

@@ -3,6 +3,7 @@
     "title": "IELTS Preparation",
     "image": "https://i.ibb.co/b5WmNYT/IELTS-Preparation.jpg",
     "instructor": "John Smith",
+    "instructor_email": "johnsmith@gmail.com",
     "available_seats": 20,
     "price": 99.99,
     "enrolled_students": 15,
@@ -13,6 +14,7 @@
     "title": "SAT Prep",
     "image": "https://i.ibb.co/wZq8BhV/SAT-Prep.jpg",
     "instructor": "Emily Johnson",
+    "instructor_email": "emilyjohnson@gmail.com",
     "available_seats": 15,
     "price": 129.99,
     "enrolled_students": 10,
@@ -23,6 +25,7 @@
     "title": "Duolingo for Beginners",
     "image": "https://i.ibb.co/4ft7H4w/Duolingo-for-Beginners.jpg",
     "instructor": "Maria Rodriguez",
+    "instructor_email": "mariarodriguez@gmail.com",
     "available_seats": 30,
     "price": 49.99,
     "enrolled_students": 25,
@@ -33,6 +36,8 @@
     "title": "TOEFL Preparation",
     "image": "https://i.ibb.co/jZnt6bb/TOEFL-Preparation.jpg",
     "instructor": "Michael Brown",
+    "instructor_email": "michaelbrown@gmail.com",
+
     "available_seats": 25,
     "price": 109.99,
     "enrolled_students": 20,
@@ -43,6 +48,8 @@
     "title": "Spoken English Mastery",
     "image": "https://i.ibb.co/VmhKhH0/Spoken-English-Mastery.jpg",
     "instructor": "Sarah Thompson",
+    "instructor_email": "sarahthompson@gmail.com",
+
     "available_seats": 20,
     "price": 79.99,
     "enrolled_students": 18,
@@ -53,6 +60,8 @@
     "title": "English Writing Workshop",
     "image": "https://i.ibb.co/KFGmF35/English-Writing-Workshop.jpg",
     "instructor": "David Wilson",
+    "instructor_email": "davidwilson@gmail.com",
+
     "available_seats": 15,
     "price": 89.99,
     "enrolled_students": 12,
@@ -63,6 +72,8 @@
     "title": "Business English Communication",
     "image": "https://i.ibb.co/z7xr7Wk/Business-English-Communication.jpg",
     "instructor": "Jennifer Lee",
+    "instructor_email": "jenniferlee@gmail.com",
+
     "available_seats": 25,
     "price": 119.99,
     "enrolled_students": 22,
@@ -73,6 +84,8 @@
     "title": "Conversational Chinese",
     "image": "https://i.ibb.co/93rZjzB/Conversational-Chinese.jpg",
     "instructor": "Li Wei",
+    "instructor_email": "liwei@gmail.com",
+
     "available_seats": 30,
     "price": 69.99,
     "enrolled_students": 28,
@@ -83,6 +96,7 @@
     "title": "Japanese for Travelers",
     "image": "https://i.ibb.co/0rd0GLv/Japanese-for-Travelers.jpg",
     "instructor": "Takeshi Nakamura",
+    "instructor_email": "takeshinakamura@gmail.com",
     "available_seats": 20,
     "price": 59.99,
     "enrolled_students": 17,
@@ -93,6 +107,8 @@
     "title": "Korean Language Basics",
     "image": "https://i.ibb.co/r6DR4nZ/Korean-Language-Basics.jpg",
     "instructor": "Kim Ji-won",
+    "instructor_email": "kimjiwon@gmail.com",
+
     "available_seats": 25,
     "price": 79.99,
     "enrolled_students": 23,
@@ -103,6 +119,8 @@
     "title": "Spanish Grammar Masterclass",
     "image": "https://i.ibb.co/rk9LFLf/Spanish-Grammar-Masterclass.jpg",
     "instructor": "Carlos Martinez",
+    "instructor_email": "carlosmartinez@gmail.com",
+
     "available_seats": 15,
     "price": 89.99,
     "enrolled_students": 11,
@@ -113,6 +131,8 @@
     "title": "French Pronunciation Workshop",
     "image": "https://i.ibb.co/bmdszpJ/French-Pronunciation-Workshop.jpg",
     "instructor": "Sophie Dubois",
+    "instructor_email": "sophiedubois@gmail.com",
+
     "available_seats": 20,
     "price": 69.99,
     "enrolled_students": 18,
@@ -123,6 +143,8 @@
     "title": "German Language Immersion",
     "image": "https://i.ibb.co/9yZPcQD/German-Language-Immersion.jpg",
     "instructor": "Maximilian Schmidt",
+    "instructor_email": "maximilianschmidt@gmail.com",
+
     "available_seats": 25,
     "price": 79.99,
     "enrolled_students": 21,
@@ -133,6 +155,8 @@
     "title": "Italian for Beginners",
     "image": "https://i.ibb.co/s93gqHd/Italian-for-Beginners.jpg",
     "instructor": "Giulia Rossi",
+    "instructor_email": "giuliarossi@gmail.com",
+
     "available_seats": 30,
     "price": 59.99,
     "enrolled_students": 27,
@@ -143,6 +167,8 @@
     "title": "Russian Writing Workshop",
     "image": "https://i.ibb.co/wZq8BhV/SAT-Prep.jpg",
     "instructor": "Dmitri Ivanov",
+    "instructor_email": "dmitriivanov@gmail.com",
+
     "available_seats": 15,
     "price": 89.99,
     "enrolled_students": 13,
@@ -153,6 +179,8 @@
     "title": "Portuguese Conversation Practice",
     "image": "https://i.ibb.co/kMgP8tk/Portuguese-Conversation-Practice.jpg",
     "instructor": "Isabela Silva",
+    "instructor_email": "isabelasilva@gmail.com",
+
     "available_seats": 20,
     "price": 69.99,
     "enrolled_students": 16,
@@ -163,6 +191,8 @@
     "title": "Arabic Language Essentials",
     "image": "https://i.ibb.co/nM9RZQV/Arabic-Language-Essentials.jpg",
     "instructor": "Ahmed Khalid",
+    "instructor_email": "ahmedkhalid@gmail.com",
+
     "available_seats": 25,
     "price": 79.99,
     "enrolled_students": 19,
@@ -173,6 +203,8 @@
     "title": "Mandarin Chinese for Kids",
     "image": "https://i.ibb.co/sCzsnvD/Mandarin-Chinese-for-Kids.jpg",
     "instructor": "Li Wei",
+    "instructor_email": "liwei@gmail.com",
+
     "available_seats": 20,
     "price": 49.99,
     "enrolled_students": 15,
@@ -183,6 +215,8 @@
     "title": "Japanese Anime and Manga Club",
     "image": "https://i.ibb.co/R0h9Zn8/Japanese-Anime-and-Manga-Club.jpg",
     "instructor": "Takeshi Nakamura",
+    "instructor_email": "takeshinakamura@gmail.com",
+
     "available_seats": 15,
     "price": 69.99,
     "enrolled_students": 12,
@@ -193,6 +227,8 @@
     "title": "Spanish for Travelers",
     "image": "https://i.ibb.co/VWwvVXc/Spanish-for-Travelers.jpg",
     "instructor": "Carlos Martinez",
+    "instructor_email": "carlosmartinez@gmail.com",
+
     "available_seats": 20,
     "price": 59.99,
     "enrolled_students": 17,
@@ -203,6 +239,7 @@
     "title": "German Pronunciation Workshop",
     "image": "https://i.ibb.co/9yZPcQD/German-Language-Immersion.jpg",
     "instructor": "Maximilian Schmidt",
+    "instructor_email": "maximilianschmidt@gmail.com",
     "available_seats": 25,
     "price": 69.99,
     "enrolled_students": 21,

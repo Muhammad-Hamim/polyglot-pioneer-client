@@ -1,21 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import Banner from "../../Shared/Banner/Banner";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
-import InstCard from "./InstCard";
+import Banner from "../../Shared/Banner/Banner";
+import ClassCard from "./ClassCard";
 
-const Instructors = () => {
+const Classes = () => {
   const { loading } = useAuth();
-  const { data, isLoading } = useQuery({
+  const { data: classes, isLoading } = useQuery({
     queryKey: [],
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
-        "https://polyglot-pioneers-academy-server.vercel.app/instructors"
+        "https://polyglot-pioneers-academy-server.vercel.app/classes"
       );
       return res.data;
     },
   });
+  console.log(classes);
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -27,12 +28,12 @@ const Instructors = () => {
           description="Expert Instructors. Exceptional Learning. Achieve Fluency."></Banner>
       </div>
       <div className="max-w-screen-xl mx-auto py-10 grid lg:grid-cols-3 gap-8">
-        {data.map((item) => {
-          return <InstCard key={item._id} inst={item}></InstCard>;
+        {classes.map((item) => {
+          return <ClassCard key={item._id} item={item}></ClassCard>;
         })}
       </div>
     </div>
   );
 };
 
-export default Instructors;
+export default Classes;

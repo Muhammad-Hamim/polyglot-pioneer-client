@@ -37,7 +37,7 @@ const Login = () => {
         <title>PPA | Login</title>
       </Helmet>
       <div className="flex place-content-center place-items-center w-full min-h-screen">
-        <div className=" w-2/6 p-20 border-indigo-500 border-[1px] shadow-xl rounded-lg">
+        <div className=" p-8 w-full lg:w-2/6 lg:p-20 border-indigo-500 md:border-[1px] md:shadow-xl rounded-lg">
           <h2 className="text-indigo-500 text-3xl text-center font-bold">
             Please Login
           </h2>

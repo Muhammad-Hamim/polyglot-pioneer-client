@@ -7,7 +7,7 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { Login } = useAuth();
+  const { Login, googleSignIn } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -30,6 +30,22 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have been successfully logged in",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <>
@@ -93,7 +109,9 @@ const Login = () => {
           <div className="flex flex-col w-full mt-8 border-opacity-50">
             <div className="divider">OR</div>
             <div className="grid rounded-box place-items-center">
-              <button className="btn btn-circle text-3xl">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle text-3xl">
                 <FcGoogle />
               </button>
             </div>

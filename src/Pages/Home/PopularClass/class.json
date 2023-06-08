@@ -1,0 +1,312 @@
+[
+  {
+    "title": "IELTS Preparation",
+    "image": "https://i.ibb.co/b5WmNYT/IELTS-Preparation.jpg",
+    "instructor": "John Smith",
+    "available_seats": 20,
+    "price": 99.99,
+    "enrolled_students": 15,
+    "rating": 4.7,
+    "description": "Prepare for the International English Language Testing System (IELTS) exam with our comprehensive course. Learn test-taking strategies and improve your English language skills in all four sections: reading, writing, listening, and speaking."
+  },
+  {
+    "title": "SAT Prep",
+    "image": "https://i.ibb.co/wZq8BhV/SAT-Prep.jpg",
+    "instructor": "Emily Johnson",
+    "available_seats": 15,
+    "price": 129.99,
+    "enrolled_students": 10,
+    "rating": 4.5,
+    "description": "Get ready for the SAT exam with our expert-led preparation course. Cover all the essential topics, practice with real SAT questions, and boost your test performance. Improve your critical reading, writing, and math skills."
+  },
+  {
+    "title": "Duolingo for Beginners",
+    "image": "https://i.ibb.co/4ft7H4w/Duolingo-for-Beginners.jpg",
+    "instructor": "Maria Rodriguez",
+    "available_seats": 30,
+    "price": 49.99,
+    "enrolled_students": 25,
+    "rating": 4.9,
+    "description": "Start your language learning journey with Duolingo. This course is designed for beginners, providing a solid foundation in vocabulary, grammar, and pronunciation. Practice your speaking and listening skills in a fun and interactive way."
+  },
+  {
+    "title": "TOEFL Preparation",
+    "image": "https://i.ibb.co/jZnt6bb/TOEFL-Preparation.jpg",
+    "instructor": "Michael Brown",
+    "available_seats": 25,
+    "price": 109.99,
+    "enrolled_students": 20,
+    "rating": 4.8,
+    "description": "Prepare for the Test of English as a Foreign Language (TOEFL) exam with our comprehensive course. Enhance your reading, listening, speaking, and writing skills required to succeed in the test. Gain confidence and achieve your desired score."
+  },
+  {
+    "title": "Spoken English Mastery",
+    "image": "https://i.ibb.co/VmhKhH0/Spoken-English-Mastery.jpg",
+    "instructor": "Sarah Thompson",
+    "available_seats": 20,
+    "price": 79.99,
+    "enrolled_students": 18,
+    "rating": 4.6,
+    "description": "Improve your spoken English skills and build fluency with our interactive course. Enhance your pronunciation, expand your vocabulary, and practice conversations on various topics. Boost your confidence in real-life situations."
+  },
+  {
+    "title": "English Writing Workshop",
+    "image": "https://i.ibb.co/KFGmF35/English-Writing-Workshop.jpg",
+    "instructor": "David Wilson",
+    "available_seats": 15,
+    "price": 89.99,
+    "enrolled_students": 12,
+    "rating": 4.4,
+    "description": "Enhance your English writing skills with our workshop. Learn techniques for crafting effective essays, reports, and emails. Improve grammar, vocabulary, and sentence structure to convey your ideas clearly and concisely."
+  },
+  {
+    "title": "Business English Communication",
+    "image": "https://i.ibb.co/z7xr7Wk/Business-English-Communication.jpg",
+    "instructor": "Jennifer Lee",
+    "available_seats": 25,
+    "price": 119.99,
+    "enrolled_students": 22,
+    "rating": 4.7,
+    "description": "Master English communication skills for the business environment. Learn to write professional emails, make effective presentations, negotiate confidently, and engage in successful business conversations."
+  },
+  {
+    "title": "Conversational Chinese",
+    "image": "https://i.ibb.co/93rZjzB/Conversational-Chinese.jpg",
+    "instructor": "Li Wei",
+    "available_seats": 30,
+    "price": 69.99,
+    "enrolled_students": 28,
+    "rating": 4.9,
+    "description": "Start your journey to learn Chinese with our conversational course. Practice speaking, listening, reading, and writing in Chinese. Gain cultural insights and confidently communicate in everyday situations."
+  },
+  {
+    "title": "Japanese for Travelers",
+    "image": "https://i.ibb.co/0rd0GLv/Japanese-for-Travelers.jpg",
+    "instructor": "Takeshi Nakamura",
+    "available_seats": 20,
+    "price": 59.99,
+    "enrolled_students": 17,
+    "rating": 4.6,
+    "description": "Learn essential Japanese phrases and vocabulary for travel purposes. Navigate through common situations like ordering food, asking for directions, and interacting with locals. Make your trip to Japan even more memorable."
+  },
+  {
+    "title": "Korean Language Basics",
+    "image": "https://i.ibb.co/r6DR4nZ/Korean-Language-Basics.jpg",
+    "instructor": "Kim Ji-won",
+    "available_seats": 25,
+    "price": 79.99,
+    "enrolled_students": 23,
+    "rating": 4.8,
+    "description": "Start your Korean language journey with our beginner course. Learn the basics of Korean grammar, pronunciation, and essential vocabulary. Develop the skills to introduce yourself, have simple conversations, and understand Korean culture."
+  },
+  {
+    "title": "Spanish Grammar Masterclass",
+    "image": "https://i.ibb.co/rk9LFLf/Spanish-Grammar-Masterclass.jpg",
+    "instructor": "Carlos Martinez",
+    "available_seats": 15,
+    "price": 89.99,
+    "enrolled_students": 11,
+    "rating": 4.5,
+    "description": "Master Spanish grammar with our comprehensive masterclass. Learn verb conjugation, sentence structure, tenses, and more. Develop a strong foundation in Spanish to communicate effectively in both spoken and written form."
+  },
+  {
+    "title": "French Pronunciation Workshop",
+    "image": "https://i.ibb.co/bmdszpJ/French-Pronunciation-Workshop.jpg",
+    "instructor": "Sophie Dubois",
+    "available_seats": 20,
+    "price": 69.99,
+    "enrolled_students": 18,
+    "rating": 4.7,
+    "description": "Improve your French pronunciation with our dedicated workshop. Master the sounds, accents, and intonations of the French language. Enhance your listening skills and sound more natural when speaking."
+  },
+  {
+    "title": "German Language Immersion",
+    "image": "https://i.ibb.co/9yZPcQD/German-Language-Immersion.jpg",
+    "instructor": "Maximilian Schmidt",
+    "available_seats": 25,
+    "price": 79.99,
+    "enrolled_students": 21,
+    "rating": 4.7,
+    "description": "Immerse yourself in the German language and culture. Learn essential vocabulary, grammar, and conversational skills. Gain confidence to communicate effectively in various real-life situations."
+  },
+  {
+    "title": "Italian for Beginners",
+    "image": "https://i.ibb.co/s93gqHd/Italian-for-Beginners.jpg",
+    "instructor": "Giulia Rossi",
+    "available_seats": 30,
+    "price": 59.99,
+    "enrolled_students": 27,
+    "rating": 4.8,
+    "description": "Begin your journey to learn Italian with our beginner course. Develop basic conversational skills, vocabulary, and grammar. Immerse yourself in Italian culture and start communicating in one of the most romantic languages."
+  },
+  {
+    "title": "Russian Writing Workshop",
+    "image": "https://i.ibb.co/wZq8BhV/SAT-Prep.jpg",
+    "instructor": "Dmitri Ivanov",
+    "available_seats": 15,
+    "price": 89.99,
+    "enrolled_students": 13,
+    "rating": 4.6,
+    "description": "Enhance your Russian writing skills with our dedicated workshop. Learn to compose essays, emails, and reports in Russian. Focus on grammar, sentence structure, and improving your overall writing proficiency."
+  },
+  {
+    "title": "Portuguese Conversation Practice",
+    "image": "https://i.ibb.co/kMgP8tk/Portuguese-Conversation-Practice.jpg",
+    "instructor": "Isabela Silva",
+    "available_seats": 20,
+    "price": 69.99,
+    "enrolled_students": 16,
+    "rating": 4.7,
+    "description": "Practice and improve your Portuguese conversation skills with our interactive course. Engage in discussions, role-plays, and real-life scenarios. Boost your confidence and fluency in Portuguese."
+  },
+  {
+    "title": "Arabic Language Essentials",
+    "image": "https://i.ibb.co/nM9RZQV/Arabic-Language-Essentials.jpg",
+    "instructor": "Ahmed Khalid",
+    "available_seats": 25,
+    "price": 79.99,
+    "enrolled_students": 19,
+    "rating": 4.7,
+    "description": "Start your Arabic language learning journey with our essential course. Learn the Arabic alphabet, basic grammar, and useful vocabulary. Develop the skills to have simple conversations and understand Arabic culture."
+  },
+  {
+    "title": "Mandarin Chinese for Kids",
+    "image": "https://i.ibb.co/sCzsnvD/Mandarin-Chinese-for-Kids.jpg",
+    "instructor": "Li Wei",
+    "available_seats": 20,
+    "price": 49.99,
+    "enrolled_students": 15,
+    "rating": 4.5,
+    "description": "Introduce your kids to Mandarin Chinese with our interactive course. Designed specifically for children, they'll learn through fun activities, songs, and games. Lay a strong foundation for their language skills."
+  },
+  {
+    "title": "Japanese Anime and Manga Club",
+    "image": "https://i.ibb.co/R0h9Zn8/Japanese-Anime-and-Manga-Club.jpg",
+    "instructor": "Takeshi Nakamura",
+    "available_seats": 15,
+    "price": 69.99,
+    "enrolled_students": 12,
+    "rating": 4.4,
+    "description": "Join our club to explore Japanese anime and manga. Learn Japanese phrases commonly used in anime and delve into the fascinating world of manga. Enhance your language skills while indulging in your favorite media."
+  },
+  {
+    "title": "Spanish for Travelers",
+    "image": "https://i.ibb.co/VWwvVXc/Spanish-for-Travelers.jpg",
+    "instructor": "Carlos Martinez",
+    "available_seats": 20,
+    "price": 59.99,
+    "enrolled_students": 17,
+    "rating": 4.6,
+    "description": "Learn essential Spanish phrases and vocabulary for travel purposes. Communicate with confidence in common travel scenarios like ordering food, asking for directions, and interacting with locals. Make the most out of your trip to Spanish-speaking countries."
+  },
+  {
+    "title": "German Pronunciation Workshop",
+    "image": "https://i.ibb.co/9yZPcQD/German-Language-Immersion.jpg",
+    "instructor": "Maximilian Schmidt",
+    "available_seats": 25,
+    "price": 69.99,
+    "enrolled_students": 21,
+    "rating": 4.7,
+    "description": "Improve your German pronunciation with our dedicated workshop. Learn the correct sounds, accents, and intonations of the German language. Enhance your listening skills and speak German with confidence."
+  },
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+{
+      "image": "https://i.ibb.co/jH7hCRV/john-smith.jpg",
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "classes_taken": 20,
+      "rating": 4.7
+    },
+    {
+      "image": "https://i.ibb.co/hDR0Z7j/Emily-Johnson.jpg",
+      "name": "Emily Johnson",
+      "email": "emilyjohnson@gmail.com",
+      "classes_taken": 15,
+      "rating": 4.5
+    },
+    {
+      "image": "https://i.ibb.co/wLD56Hr/Maria-Rodriguez.jpg",
+      "name": "Maria Rodriguez",
+      "email": "mariarodriguez@gmail.com",
+      "classes_taken": 30,
+      "rating": 4.9
+    },
+    {
+      "image": "https://i.ibb.co/ZcXZtvK/Michael-Brown.jpg",
+      "name": "Michael Brown",
+      "email": "michaelbrown@gmail.com",
+      "classes_taken": 25,
+      "rating": 4.8
+    },
+    {
+      "image": "https://i.ibb.co/stgpDMS/Sarah-Thompson.jpg",
+      "name": "Sarah Thompson",
+      "email": "sarahthompson@gmail.com",
+      "classes_taken": 20,
+      "rating": 4.6
+    },
+    {
+      "image": "https://i.ibb.co/Vp0tSyb/David-Wilson.jpg",
+      "name": "David Wilson",
+      "email": "davidwilson@gmail.com",
+      "classes_taken": 15,
+      "rating": 4.4
+    },
+    {
+      "image": "https://i.ibb.co/4KV7Gnz/Jennifer-Lee.jpg",
+      "name": "Jennifer Lee",
+      "email": "jenniferlee@gmail.com",
+      "classes_taken": 25,
+      "rating": 4.7
+    },
+    {
+      "image": "https://i.ibb.co/b5m9rcV/Li-Wei.jpg",
+      "name": "Li Wei",
+      "email": "liwei@gmail.com",
+      "classes_taken": 30,
+      "rating": 4.9
+    },
+    {
+      "image": "https://i.ibb.co/mJRC2V9/Takeshi-Nakamura.jpg",
+      "name": "Takeshi Nakamura",
+      "email": "takeshinakamura@gmail.com",
+      "classes_taken": 20,
+      "rating": 4.6
+    },
+    {
+      "image": "https://i.ibb.co/ygXqdZ0/Kim-Ji-won.jpg",
+      "name": "Kim Ji-won",
+      "email": "kimjiwon@gmail.com",
+      "classes_taken": 25,
+      "rating": 4.8
+    }
+  ]
+
+  
+
+
+
+
+
+
+
+

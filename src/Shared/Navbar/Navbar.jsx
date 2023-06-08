@@ -28,22 +28,30 @@ const Navbar = () => {
   const navItem = (
     <>
       <li className="hover:text-primary duration-150">
-        <NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-primary" : "")}>
           <button>Home</button>
         </NavLink>
       </li>
       <li className="hover:text-primary duration-150">
-        <NavLink>
+        <NavLink
+          to="/instructors"
+          className={({ isActive }) => (isActive ? "text-primary" : "")}>
           <button>Instructors</button>
         </NavLink>
       </li>
       <li className="hover:text-primary duration-150">
-        <NavLink>
+        <NavLink
+          to="/classes"
+          className={({ isActive }) => (isActive ? "text-primary" : "")}>
           <button>Classes</button>
         </NavLink>
       </li>
       <li className="hover:text-primary duration-150">
-        <NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "text-primary" : "")}>
           <button>Contact Us</button>
         </NavLink>
       </li>
@@ -51,7 +59,9 @@ const Navbar = () => {
   );
   const theme = (
     <>
-      <button className="text-3xl text-indigo-500" onClick={() => setDark(!dark)}>
+      <button
+        className="text-3xl text-indigo-500"
+        onClick={() => setDark(!dark)}>
         {dark ? <LuSunMoon /> : <BsMoonStarsFill />}
       </button>
     </>

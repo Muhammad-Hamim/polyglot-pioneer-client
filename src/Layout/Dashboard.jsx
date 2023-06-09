@@ -1,14 +1,61 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { MdFactCheck, MdPayments } from "react-icons/md";
-import { BiBookOpen } from "react-icons/bi";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaBookReader } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
+import { BiPlus, BiEdit } from "react-icons/bi";
 import { HiAcademicCap } from "react-icons/hi2";
-import { IoMdMail } from "react-icons/io";
+import { IoMdMail, IoMdSchool } from "react-icons/io";
 
 const Dashboard = () => {
   const { user } = useAuth();
+  const isStudent = false;
+  const isInstructor = false;
+  const isAdmin = true;
+  const adminItem = (
+    <>
+      <li className="hover:text-primary duration-150">
+        <NavLink
+          to="/manageclass"
+          className={({ isActive }) => (isActive ? "btn" : "")}>
+          <button className="flex gap-1 items-center text-lg font-medium">
+            <BiEdit /> Manage class
+          </button>
+        </NavLink>
+      </li>
+      <li className="hover:text-primary duration-150">
+        <NavLink
+          to="/myclass"
+          className={({ isActive }) => (isActive ? "btn" : "")}>
+          <button className="flex gap-1 items-center text-lg font-medium">
+            <FaUser /> Manage users
+          </button>
+        </NavLink>
+      </li>
+    </>
+  );
+  const instructorItem = (
+    <>
+      <li className="hover:text-primary duration-150">
+        <NavLink
+          to="/addclass"
+          className={({ isActive }) => (isActive ? "btn" : "")}>
+          <button className="flex gap-1 items-center text-lg font-medium">
+            <IoMdSchool /> Add class
+          </button>
+        </NavLink>
+      </li>
+      <li className="hover:text-primary duration-150">
+        <NavLink
+          to="/myclass"
+          className={({ isActive }) => (isActive ? "btn" : "")}>
+          <button className="flex gap-1 items-center text-lg font-medium">
+            <BiPlus /> My class
+          </button>
+        </NavLink>
+      </li>
+    </>
+  );
   const studentItem = (
     <>
       <li className="hover:text-primary duration-150">
@@ -16,7 +63,7 @@ const Dashboard = () => {
           to="/selectedclass"
           className={({ isActive }) => (isActive ? "btn" : "")}>
           <button className="flex gap-1 items-center text-lg font-medium">
-            <MdFactCheck /> Selected Class
+            <MdFactCheck /> Selected class
           </button>
         </NavLink>
       </li>
@@ -25,7 +72,7 @@ const Dashboard = () => {
           to="/enrolledclass"
           className={({ isActive }) => (isActive ? "btn" : "")}>
           <button className="flex gap-1 items-center text-lg font-medium">
-            <HiAcademicCap /> Enrolled Class
+            <HiAcademicCap /> Enrolled class
           </button>
         </NavLink>
       </li>
@@ -34,7 +81,7 @@ const Dashboard = () => {
           to="/paymenthistory"
           className={({ isActive }) => (isActive ? "btn" : "")}>
           <button className="flex gap-1 items-center text-lg font-medium">
-            <MdPayments /> Payment History
+            <MdPayments /> Payment history
           </button>
         </NavLink>
       </li>
@@ -65,9 +112,17 @@ const Dashboard = () => {
                 alt=""
               />
             </div>
+            <div className="text-center mt-10 text-xl font-semibold">
+              <h2>Name: {user?.displayName}</h2>
+              <h2>Email: {user?.email}</h2>
+            </div>
           </div>
           <div className="divider"></div>
-          {studentItem}
+          {/* conditional menu item */}
+          {isStudent && studentItem}
+          {isInstructor && instructorItem}
+          {isAdmin && adminItem}
+          {/* conditional menu item */}
           <div className="divider"></div>
           <li className="hover:text-primary duration-150">
             <NavLink
@@ -94,7 +149,7 @@ const Dashboard = () => {
               to="/classes"
               className={({ isActive }) => (isActive ? "btn" : "")}>
               <button className="flex gap-1 items-center text-lg font-medium">
-                <BiBookOpen />
+                <FaBookReader />
                 Classes
               </button>
             </NavLink>

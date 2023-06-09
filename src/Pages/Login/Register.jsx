@@ -37,16 +37,13 @@ const Register = () => {
               console.log(loggedUser);
               updateUserProfile(name, imgURL).then(() => {
                 const userInfo = { name, email, image: imgURL };
-                fetch(
-                  "https://polyglot-pioneers-academy-server.vercel.app/users",
-                  {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                    body: JSON.stringify(userInfo),
-                  }
-                )
+                fetch("http://localhost:3000/users", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(userInfo),
+                })
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.insertedId) {

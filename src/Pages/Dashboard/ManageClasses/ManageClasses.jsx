@@ -1,8 +1,58 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import ClassRow from "./ClassRow";
 
 const ManageClasses = () => {
+  const { data: classes = [], refetch } = useQuery({
+    queryKey: ["classes"],
+    queryFn: async () => {
+      const res = await axios.get("http://localhost:3000/classes");
+      return res.data;
+    },
+  });
   return (
-    <div>
-      all classes found here
+    <div className="max-w-screen-xl mx-auto py-24">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
+          {/* outside of table header */}
+        </div>
+        <table className="w-full text-sm text-gray-500">
+          <thead className="text-gray-700 uppercase text-center bg-gray-50 ">
+            <tr>
+              <th scope="col" className="p-4">
+                <h2 className="text-lg">#</h2>
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Photo
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Class
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Instructor
+              </th>
+              <th scope="col" className="px-6 py-3">
+                status
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {classes.map((course, index) => {
+              return (
+                <ClassRow
+                  key={course._id}
+                  refetch={refetch}
+                  index={index}
+                  course={course}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

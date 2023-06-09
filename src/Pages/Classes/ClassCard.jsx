@@ -61,7 +61,7 @@ const ClassCard = ({ item }) => {
             />
           </h3>
           <button className="badge badge-primary hover:badge-outline">
-            SEE CLASSES
+            SELECT CLASS
           </button>
         </div>
       </div>

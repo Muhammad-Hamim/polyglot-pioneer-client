@@ -23,8 +23,8 @@ const Instructors = () => {
     <div>
       <div>
         <Banner
-          title="Our honorable instructors."
-          description="Expert Instructors. Exceptional Learning. Achieve Fluency."></Banner>
+          title="Meet Our Expert Instructors"
+          description="Learn from industry-leading professionals who are passionate about sharing their expertise with you."></Banner>
       </div>
       <div className="max-w-screen-xl mx-auto py-10 grid lg:grid-cols-3 gap-8">
         {data.map((item) => {

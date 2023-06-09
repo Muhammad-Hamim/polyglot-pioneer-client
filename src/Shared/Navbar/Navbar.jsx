@@ -96,17 +96,17 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                   <label className="avatar" tabIndex={0}>
                     <div className="w-12 cursor-pointer rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img src={user.photoURL} />
+                      <img src={user?.photoURL} />
                     </div>
                   </label>
                   <ul
                     tabIndex={0}
                     className="menu menu-md dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
-                      <button>{user.displayName}</button>
+                      <button>{user?.displayName}</button>
                     </li>
                     <li>
-                      <button>{user.email}</button>
+                      <button>{user?.email}</button>
                     </li>
                     <li>
                       <NavLink to="/profile">

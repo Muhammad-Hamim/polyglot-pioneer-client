@@ -2,13 +2,16 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 const Register = () => {
   const { googleSignIn, createUser, updateUserProfile } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const imgHostingurl = `https://api.imgbb.com/1/upload?&key=${imgHostingToken}`;
   const {
     register,
@@ -16,7 +19,6 @@ const Register = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const navigate = useNavigate();
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
@@ -93,6 +95,7 @@ const Register = () => {
                 timer: 1500,
               });
               navigate("/");
+              navigate(from, { replace: true });
             }
           });
       })

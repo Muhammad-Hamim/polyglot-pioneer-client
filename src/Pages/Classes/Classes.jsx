@@ -24,8 +24,8 @@ const Classes = () => {
     <div>
       <div>
         <Banner
-          title="Our honorable instructors."
-          description="Expert Instructors. Exceptional Learning. Achieve Fluency."></Banner>
+          title="Explore Our Diverse Range of Classes"
+          description="Discover new skills and expand your knowledge with our wide selection of classes."></Banner>
       </div>
       <div className="max-w-screen-xl mx-auto py-10 grid lg:grid-cols-3 gap-8">
         {classes.map((item) => {

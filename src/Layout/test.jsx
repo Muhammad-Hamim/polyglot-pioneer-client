@@ -20,7 +20,7 @@ const Dashboard = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard/manageusers">
+        <NavLink to="manageusers">
           <FaUser /> Manage users
         </NavLink>
       </li>
@@ -61,7 +61,7 @@ const Dashboard = () => {
   );
   return (
     <div>
-      <div className="drawer drawer-mobile lg:drawer-open">
+      <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
@@ -89,11 +89,10 @@ const Dashboard = () => {
                 <h2>Email: {user?.email}</h2>
               </div>
             </div>
-            <div className="divider"></div>
             {isStudent && studentItem}
             {isInstructor && instructorItem}
             {isAdmin && adminItem}
-            <div className="divider"></div>
+
             <li className="hover:text-primary duration-150">
               <NavLink to="/">
                 <AiFillHome />
@@ -116,12 +115,6 @@ const Dashboard = () => {
               <NavLink to="/contact">
                 <IoMdMail />
                 Contact Us
-              </NavLink>
-            </li>
-            <li className="hover:text-primary duration-150">
-              <NavLink to="/contact">
-                <IoMdMail />
-                Logout
               </NavLink>
             </li>
           </ul>

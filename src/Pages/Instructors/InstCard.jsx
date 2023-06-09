@@ -17,7 +17,6 @@ const InstCard = ({ inst }) => {
           <span className="font-semibold">Email: </span>{" "}
           <a href={`mailto:${email}`}>{email}</a>
         </h3>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
         <h3 className="text-lg font-medium">
           Classes Taken:{" "}
           <span className="badge badge-primary text-white">

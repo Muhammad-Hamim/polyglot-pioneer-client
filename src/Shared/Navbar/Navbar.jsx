@@ -3,7 +3,6 @@ import logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { LuSunMoon } from "react-icons/lu";
-import { Sidebar } from "primereact/sidebar";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
@@ -141,11 +140,11 @@ const Navbar = () => {
       </div>
 
       <div className="card flex justify-content-center">
-        <Sidebar visible={isOpen} onHide={() => setOpen(false)}>
+        {/* <p visible={isOpen} onHide={() => setOpen(false)}>
           <ul className=" space-y-3 text-lg text-indigo-600 font-semibold">
             {navItem}
-          </ul>
-        </Sidebar>
+          </ul> 
+        </p> */}
       </div>
     </>
   );

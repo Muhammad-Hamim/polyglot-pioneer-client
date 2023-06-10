@@ -45,12 +45,14 @@ const ClassCard = ({ item }) => {
           </span>
         </h3>
         <p>{description}</p>
-        <h2 className="badge badge-info text-lg font-bold text-white">${price}</h2>
+        <h2 className="badge badge-info text-lg font-bold text-white">
+          ${price}
+        </h2>
         <div className="card-actions justify-between items-center">
           <h3>
             <ReactStars
               count={5}
-              value={rating}
+              value={rating ? rating : 0}
               size={24}
               isHalf={true}
               edit={false}

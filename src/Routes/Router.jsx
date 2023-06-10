@@ -9,6 +9,9 @@ import Classes from "../Pages/Classes/Classes";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import PrivateRoute from "./PrivateRoute";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import EditMyClass from "../Pages/Dashboard/MyClasses/EditMyClass";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +55,20 @@ export const router = createBrowserRouter([
       {
         path: "manageclasses",
         element: <ManageClasses />,
+      },
+      {
+        path: "addclass",
+        element: <AddClass />,
+      },
+      {
+        path: "myclasses",
+        element: <MyClasses />,
+      },
+      {
+        path: "myclasses/editmyclass/:id",
+        element: <EditMyClass />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/classes/${params.id}`),
       },
     ],
   },

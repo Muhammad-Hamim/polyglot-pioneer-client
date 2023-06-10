@@ -10,8 +10,8 @@ import { IoMdMail, IoMdSchool } from "react-icons/io";
 const Dashboard = () => {
   const { user } = useAuth();
   const isStudent = false;
-  const isInstructor = false;
-  const isAdmin = true;
+  const isInstructor = true;
+  const isAdmin = false;
   const adminItem = (
     <>
       <li>
@@ -34,7 +34,7 @@ const Dashboard = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="myclass">
+        <NavLink to="myclasses">
           <BiPlus /> My class
         </NavLink>{" "}
       </li>

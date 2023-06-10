@@ -82,8 +82,9 @@ const EditMyClass = () => {
       <div className="max-w-screen-xl mx-auto py-24">
         <div className="p-8 w-full lg:p-20 border-indigo-500 md:border-[1px] md:shadow-xl rounded-lg">
           <h2 className="text-indigo-500 text-3xl text-center font-bold">
-            Enter Information to add clas
+            Enter Information to add class
           </h2>
+          <p className="text-red-400 text-center">To update your class info, you must add a photo. Otherwise you can not update class info!</p>
           <form className="mt-10 grid grid-cols-2 gap-8 items-center">
             <div className="form-control">
               <input

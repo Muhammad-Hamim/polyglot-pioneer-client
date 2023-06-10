@@ -39,7 +39,7 @@ const AddClass = () => {
             description: data.description,
             status: "pending",
           };
-          console.log(classInfo);
+          console.log(classInfo)
           fetch("http://localhost:3000/classes", {
             method: "POST",
             headers: {
@@ -49,6 +49,7 @@ const AddClass = () => {
           })
             .then((res) => res.json())
             .then((data) => {
+              console.log(data);
               if (data.insertedId) {
                 reset();
                 Swal.fire({

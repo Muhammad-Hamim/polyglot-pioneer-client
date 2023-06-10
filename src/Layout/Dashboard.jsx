@@ -30,12 +30,12 @@ const Dashboard = () => {
     <>
       <li>
         <NavLink to="addclass">
-          <IoMdSchool /> Add class
+          <BiPlus /> Add class
         </NavLink>
       </li>
       <li>
         <NavLink to="myclasses">
-          <BiPlus /> My class
+          <IoMdSchool /> My class
         </NavLink>{" "}
       </li>
     </>

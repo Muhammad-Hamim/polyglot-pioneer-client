@@ -9,7 +9,9 @@ const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/classes");
+      const res = await axios.get(
+        "https://polyglot-pioneers-academy-server.vercel.app/classes"
+      );
       return res.data;
     },
   });
@@ -21,13 +23,16 @@ const ManageClasses = () => {
   };
   const sendFeedback = (data) => {
     console.log(data.feedback);
-    fetch(`http://localhost:3000/classes/feedback/${feedbackID}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ feedback: data.feedback }),
-    })
+    fetch(
+      `https://polyglot-pioneers-academy-server.vercel.app/classes/feedback/${feedbackID}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ feedback: data.feedback }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -48,7 +53,7 @@ const ManageClasses = () => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of table header */}
-          
+
           <dialog
             id="feedbackModal"
             className="modal modal-bottom sm:modal-middle">

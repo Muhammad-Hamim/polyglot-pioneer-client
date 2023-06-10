@@ -1,6 +1,10 @@
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
+import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 const ClassCard = ({ item }) => {
+  const { user } = useAuth();
   const {
     image,
     title,
@@ -12,9 +16,38 @@ const ClassCard = ({ item }) => {
     available_seats,
     rating,
   } = item;
-  console.log(item);
+  const handleSelectClass = () => {
+    const selectItem = {
+      ...item,
+      stuName: user.displayName,
+      stuEmail: user.email,
+    };
+    axios
+      .post(
+        "https://polyglot-pioneers-academy-server.vercel.app/selectedclass",
+        selectItem
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your class has been selected",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div
+      className={`card ${
+        available_seats == 0 ? "bg-red-600" : "bg-base-100"
+      } shadow-xl`}>
       <figure>
         <img className="max-h-[285px] w-full" src={image} alt="Shoes" />
       </figure>
@@ -62,7 +95,10 @@ const ClassCard = ({ item }) => {
               activeColor="#4f46e5"
             />
           </h3>
-          <button className="badge badge-primary hover:badge-outline">
+          <button
+            onClick={handleSelectClass}
+            disabled={available_seats == 0 ? true : false}
+            className="badge badge-primary hover:badge-outline">
             SELECT CLASS
           </button>
         </div>

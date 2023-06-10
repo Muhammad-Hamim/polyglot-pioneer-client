@@ -9,8 +9,8 @@ import { IoMdMail, IoMdSchool } from "react-icons/io";
 
 const Dashboard = () => {
   const { user } = useAuth();
-  const isStudent = false;
-  const isInstructor = true;
+  const isStudent = true;
+  const isInstructor = false;
   const isAdmin = false;
   const adminItem = (
     <>

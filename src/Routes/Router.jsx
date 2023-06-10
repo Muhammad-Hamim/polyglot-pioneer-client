@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import EditMyClass from "../Pages/Dashboard/MyClasses/EditMyClass";
+import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
         element: <ManageUsers />,
       },
       {
+        path: "selectedclass",
+        element: <SelectedClass />,
+      },
+      {
         path: "manageclasses",
         element: <ManageClasses />,
       },
@@ -68,7 +73,9 @@ export const router = createBrowserRouter([
         path: "myclasses/editmyclass/:id",
         element: <EditMyClass />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/classes/${params.id}`),
+          fetch(
+            `https://polyglot-pioneers-academy-server.vercel.app/classes/${params.id}`
+          ),
       },
     ],
   },

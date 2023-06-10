@@ -44,7 +44,7 @@ const Login = () => {
           email,
           image: photoURL,
         };
-        fetch("http://localhost:3000/users", {
+        fetch("https://polyglot-pioneers-academy-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

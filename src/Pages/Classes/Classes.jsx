@@ -10,7 +10,9 @@ const Classes = () => {
     queryKey: [],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/classes");
+      const res = await axios.get(
+        "https://polyglot-pioneers-academy-server.vercel.app/classes"
+      );
       return res.data;
     },
   });

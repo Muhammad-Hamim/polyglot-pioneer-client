@@ -13,9 +13,12 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
     available_seats,
   } = course;
   const handleApprove = (id) => {
-    fetch(`http://localhost:3000/classes/approve/${id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://polyglot-pioneers-academy-server.vercel.app/classes/approve/${id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -42,9 +45,12 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
       confirmButtonText: "Yes, deny it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/classes/deny/${id}`, {
-          method: "PATCH",
-        })
+        fetch(
+          `https://polyglot-pioneers-academy-server.vercel.app/classes/deny/${id}`,
+          {
+            method: "PATCH",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -62,19 +68,6 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
       }
     });
   };
-  // const handlePending = (id) => {
-  //   fetch(`http://localhost:3000/classes/pending/${id}`, {
-  //     method: "PATCH",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount) {
-  //         refetch();
-  //       }
-  //     });
-  // };
-
   return (
     <>
       <tr className="bg-white border-b hover:bg-gray-50 text-center">
@@ -104,10 +97,20 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
         </td>
         <td className="px-6 py-4">
           <div className="flex gap-2 flex-col">
-            <button onClick={() => handleApprove(_id)} className="btn">
+            <button
+              disabled={
+                status === "approve" || status === "deny" ? true : false
+              }
+              onClick={() => handleApprove(_id)}
+              className="btn">
               Approve
             </button>
-            <button onClick={() => handleDeny(_id)} className="btn">
+            <button
+              disabled={
+                status === "approve" || status === "deny" ? true : false
+              }
+              onClick={() => handleDeny(_id)}
+              className="btn">
               Deny
             </button>
             <button

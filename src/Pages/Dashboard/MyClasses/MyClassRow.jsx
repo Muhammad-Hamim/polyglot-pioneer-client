@@ -1,4 +1,4 @@
-// import Swal from "sweetalert2";
+
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -18,38 +18,6 @@ const MyClassRow = ({ course, index, feedbackModal }) => {
     instructor_email,
     available_seats,
   } = course;
-
-  // const handleApprove = (id) => {
-  //   fetch(`http://localhost:3000/classes/approve/${id}`, {
-  //     method: "PATCH",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount) {
-  //         refetch();
-  //         Swal.fire({
-  //           position: "center",
-  //           icon: "success",
-  //           title: "Class approved!",
-  //           showConfirmButton: false,
-  //           timer: 1500,
-  //         });
-  //       }
-  //     });
-  // };
-  // const handlePending = (id) => {
-  //   fetch(`http://localhost:3000/classes/pending/${id}`, {
-  //     method: "PATCH",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount) {
-  //         refetch();
-  //       }
-  //     });
-  // };
 
   return (
     <>

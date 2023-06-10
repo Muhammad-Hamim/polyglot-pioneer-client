@@ -6,12 +6,14 @@ const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(
+        "https://polyglot-pioneers-academy-server.vercel.app/users"
+      );
       return res.data;
     },
   });
   console.log(users);
-  
+
   const adminUsers = users.filter((user) => user.role === "Admin");
   const instructorUsers = users.filter((user) => user.role === "Instructor");
   const studentUsers =

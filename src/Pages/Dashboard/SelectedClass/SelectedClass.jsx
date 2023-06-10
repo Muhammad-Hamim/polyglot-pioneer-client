@@ -1,52 +1,31 @@
-import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import MyClassRow from "./MyClassRow";
-import { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
+import SelectedClassRow from "./SelectedClassRow";
 
-const MyClasses = () => {
+const SelectedClass = () => {
   const { user, loading } = useAuth();
-  const { data: classes = [] } = useQuery({
-    queryKey: ["classes"],
+  const { data: selectedClass = [] } = useQuery({
+    queryKey: ["selected class"],
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
-        `https://polyglot-pioneers-academy-server.vercel.app/classes?instructorEmail=${user?.email}`
+        `https://polyglot-pioneers-academy-server.vercel.app/selectedclass?studentEmail=${user?.email}`
       );
       return res.data;
     },
   });
-  const [feedbackText, setFeedbackText] = useState();
-  const feedbackModal = (feedback) => {
-    window.feedbackModal.showModal();
-    setFeedbackText(feedback);
-  };
+  console.log(selectedClass);
   return (
     <div className="max-w-screen-xl mx-auto py-24">
       <div>
         <h2 className="text-center mb-6 text-3xl font-semibold">
-          All class added by you
+          All your selected class
         </h2>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of table header */}
-          <dialog
-            id="feedbackModal"
-            className="modal modal-bottom sm:modal-middle">
-            <form method="dialog" className="modal-box">
-              <h3 className="font-bold text-lg mb-5">
-                See why your class in denied
-              </h3>
-              <p className="text-2xl font-medium">
-                {feedbackText ? feedbackText : "There is no feedback"}
-              </p>
-              <div className="modal-action">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </div>
-            </form>
-          </dialog>
         </div>
         <table className="w-full text-sm text-gray-500">
           <thead className="text-gray-700 uppercase text-center bg-gray-50 ">
@@ -64,7 +43,7 @@ const MyClasses = () => {
                 Instructor
               </th>
               <th scope="col" className="px-6 py-3">
-                status
+                Price
               </th>
               <th scope="col" className="px-6 py-3">
                 Action
@@ -72,11 +51,10 @@ const MyClasses = () => {
             </tr>
           </thead>
           <tbody>
-            {classes.map((course, index) => {
+            {selectedClass.map((course, index) => {
               return (
-                <MyClassRow
+                <SelectedClassRow
                   key={course._id}
-                  feedbackModal={feedbackModal}
                   index={index}
                   course={course}
                 />
@@ -89,4 +67,4 @@ const MyClasses = () => {
   );
 };
 
-export default MyClasses;
+export default SelectedClass;

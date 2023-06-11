@@ -8,7 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { ThemeContext } from "../../Providers/ThemeProvider";
-const Navbar = () => {
+const TestNav = () => {
   const { user, logOut } = useAuth();
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
   const handleLogout = () => {
@@ -159,4 +159,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default TestNav;

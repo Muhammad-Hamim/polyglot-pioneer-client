@@ -22,7 +22,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=" bg-indigo-600 dark:bg-slate-800 w-full">
+      <div className=" bg-indigo-600 dark:bg-slate-800 px-8 lg:px-0">
         <div className="max-w-screen-xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex gap-3 items-center border-b-[1px] lg:border-b-0 lg:border-r-[1px] border-indigo-200 py-12">
             <div>

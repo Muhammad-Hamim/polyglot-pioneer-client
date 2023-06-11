@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <div className="bg-gray-900 dark:bg-slate-800">
-      <div className="max-w-screen-xl py-8 mx-auto grid md:grid-cols-2 justify-center lg:grid-cols-4 gap-5">
+      <div className="max-w-screen-xl px-8 lg:px-0 py-8 mx-auto grid md:grid-cols-2 justify-center lg:grid-cols-4 gap-5">
         <div className="">
           <Link to="/">
             <button>
@@ -143,7 +143,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="lg:max-w-screen-sm mx-auto py-10 text-center">
+      <div className="lg:max-w-screen-sm mx-auto py-10 text-center px-8 lg:px-0">
         <p className="text-gray-200">
           Enter your email address to register to our newsletter subscription
         </p>
@@ -158,7 +158,7 @@ const Footer = () => {
           </button>
         </div>
       </div>
-      <div className=" border-t-2 border-indigo-500">
+      <div className=" border-t-2 border-indigo-500 px-8 lg:px-0">
         <p className="text-center py-8 text-slate-100">
           Copyright 2023{" "}
           <span className="font-bold cursor-pointer">

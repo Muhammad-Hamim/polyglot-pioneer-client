@@ -87,7 +87,7 @@ const Navbar = () => {
                   </NavLink>
                 </div>
                 <div>
-                  <ul className="hidden lg:flex text-lg space-x-4 dark:text-gray-200 font-bold">
+                  <ul className="hidden lg:flex text-lg space-x-4 dark:text-primary-content font-bold">
                     {navItem}
                   </ul>
                 </div>
@@ -149,7 +149,7 @@ const Navbar = () => {
         </div>
         <div className="drawer-side ">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-base-200 dark:bg-slate-900 text-primary-content">
+          <ul className="menu p-4 w-80 h-full bg-base-200 font-bold dark:bg-slate-900 dark:text-primary-content">
             {/* Sidebar content here */}
             {navItem}
           </ul>

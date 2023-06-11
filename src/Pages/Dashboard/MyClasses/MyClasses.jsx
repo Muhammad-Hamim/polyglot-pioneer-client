@@ -1,17 +1,18 @@
 import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import MyClassRow from "./MyClassRow";
 import { useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MyClasses = () => {
   const { user, loading } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
   const { data: classes = [] } = useQuery({
     queryKey: ["classes"],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get(
-        `http://localhost:3000/classes?instructorEmail=${user?.email}`
+      const res = await axiosSecure.get(
+        `/classes?instructorEmail=${user?.email}`
       );
       return res.data;
     },
@@ -36,10 +37,14 @@ const MyClasses = () => {
             className="modal modal-bottom sm:modal-middle">
             <form method="dialog" className="modal-box">
               <h3 className="font-bold text-lg mb-5">
-                See why your class in denied
+                See why your class in denied or approved
               </h3>
               <p className="text-2xl font-medium">
-                {feedbackText ? feedbackText : "There is no feedback"}
+                {feedbackText ? (
+                  feedbackText
+                ) : (
+                  <span className="text-red-400">There is no feedback</span>
+                )}
               </p>
               <div className="modal-action">
                 {/* if there is a button in form, it will close the modal */}

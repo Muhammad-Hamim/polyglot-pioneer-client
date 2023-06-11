@@ -4,12 +4,12 @@ const InstCard = ({ inst }) => {
   const { name, email, classes_taken, rating, image } = inst;
   console.log(inst);
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 dark:bg-slate-800 shadow-xl">
       <figure>
         <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title dark:text-slate-200">
           {name}
           <div className="badge badge-secondary">NEW</div>
         </h2>
@@ -17,7 +17,7 @@ const InstCard = ({ inst }) => {
           <span className="font-semibold">Email: </span>{" "}
           <a href={`mailto:${email}`}>{email}</a>
         </h3>
-        <h3 className="text-lg font-medium">
+        <h3 className="text-lg font-medium dark:text-slate-300">
           Classes Taken:{" "}
           <span className="badge badge-primary text-white">
             {classes_taken}

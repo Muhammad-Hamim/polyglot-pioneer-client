@@ -7,10 +7,12 @@ import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Hamburger from "hamburger-react";
+import { useContext } from "react";
+import { ThemeContext } from "../../Providers/ThemeProvider";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const { user, logOut } = useAuth();
-  const [dark, setDark] = useState(false);
+  const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
   const handleLogout = () => {
     logOut()
       .then(() => {
@@ -58,10 +60,8 @@ const Navbar = () => {
   );
   const theme = (
     <>
-      <button
-        className="text-3xl text-indigo-500"
-        onClick={() => setDark(!dark)}>
-        {dark ? <LuSunMoon /> : <BsMoonStarsFill />}
+      <button className="text-3xl text-indigo-500" onClick={toggleTheme}>
+        {isDarkTheme ? <LuSunMoon /> : <BsMoonStarsFill />}
       </button>
     </>
   );
@@ -74,7 +74,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="py-3 px-8 bg-neutral-200">
+      <div className="py-3 px-8 bg-neutral-200 dark:bg-slate-800">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <div>
             <NavLink>
@@ -84,7 +84,7 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div>
-            <ul className=" hidden lg:flex text-lg space-x-4 font-bold">
+            <ul className="hidden lg:flex text-lg space-x-4 dark:text-gray-200 font-bold">
               {navItem}
             </ul>
           </div>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-md dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    className="menu menu-md dropdown-content mt-3 dark:bg-slate-700 dark:text-slate-200 p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
                       <button>{user?.displayName}</button>
                     </li>

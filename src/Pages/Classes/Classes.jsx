@@ -10,7 +10,7 @@ const Classes = () => {
     queryKey: [],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/classes");
+      const res = await axios.get("http://localhost:3000/classes/home");
       return res.data;
     },
   });
@@ -22,7 +22,7 @@ const Classes = () => {
     return <p>Loading...</p>;
   }
   return (
-    <div>
+    <div className="dark:bg-slate-900">
       <div>
         <Banner
           title="Explore Our Diverse Range of Classes"

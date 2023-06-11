@@ -3,21 +3,21 @@ import { Helmet } from "react-helmet-async";
 import { FaLock } from "react-icons/fa";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-// import { useLoaderData } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 
 const EditMyClass = () => {
   const { user } = useAuth();
   // const editClassData = useLoaderData();
+  const [axiosSecure] = useAxiosSecure();
   const { id } = useParams();
   const { data: editClassData = [], refetch } = useQuery({
     queryKey: ["edited class"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:3000/classes/${id}`);
+      const res = await axiosSecure.get(`/classes/${id}`);
       return res.data;
     },
   });

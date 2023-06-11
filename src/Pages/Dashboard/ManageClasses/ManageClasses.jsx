@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import ClassRow from "./ClassRow";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageClasses = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/classes");
+      const res = await axiosSecure.get("/classes");
       return res.data;
     },
   });

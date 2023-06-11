@@ -18,7 +18,7 @@ const Instructors = () => {
     return <p>Loading...</p>;
   }
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <div>
         <Banner
           title="Meet Our Expert Instructors"

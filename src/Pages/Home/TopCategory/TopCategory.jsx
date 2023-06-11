@@ -4,8 +4,8 @@ const TopCategory = () => {
   return (
     <div className="max-w-screen-xl mx-auto py-10">
       <div className=" space-y-6 mb-6 text-center">
-        <h2 className="text-4xl font-semibold text-black">Top Categories</h2>
-        <p>
+        <h2 className="text-4xl font-semibold text-black dark:text-slate-200">Top Categories</h2>
+        <p className="dark:text-slate-400">
           Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore
           et dolore
         </p>

@@ -50,13 +50,13 @@ const ClassCard = ({ item }) => {
   return (
     <div
       className={`card ${
-        available_seats == 0 ? "bg-red-600" : "bg-base-100"
-      } shadow-xl`}>
+        available_seats == 0 ? "bg-red-600" : "bg-base-100 "
+      } shadow-xl dark:bg-slate-800`}>
       <figure>
         <img className="max-h-[285px] w-full" src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title dark:text-slate-200">
           {title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
@@ -81,7 +81,7 @@ const ClassCard = ({ item }) => {
             {available_seats}
           </span>
         </h3>
-        <p>{description}</p>
+        <p className="dark:text-slate-300">{description}</p>
         <h2 className="badge badge-info text-lg font-bold text-white">
           ${price}
         </h2>

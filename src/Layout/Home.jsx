@@ -8,7 +8,7 @@ const Home = () => {
       <Helmet>
         <title>PPA | Home</title>
       </Helmet>
-      <div>
+      <div className="dark:bg-gray-900">
         <Hero></Hero>
         <TopCategory></TopCategory>
       </div>

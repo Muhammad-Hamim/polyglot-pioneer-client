@@ -16,12 +16,9 @@ const UserRow = ({ user, index, refetch }) => {
     }
   }, [role]);
   const handleMakeAdmin = (id) => {
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/users/admin/${id}`,
-      {
-        method: "PATCH",
-      }
-    )
+    fetch(`http://localhost:3000/users/admin/${id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -38,12 +35,9 @@ const UserRow = ({ user, index, refetch }) => {
       });
   };
   const handleMakeInstructor = (id) => {
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/users/instructor/${id}`,
-      {
-        method: "PATCH",
-      }
-    )
+    fetch(`http://localhost:3000/users/instructor/${id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -71,9 +65,7 @@ const UserRow = ({ user, index, refetch }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(
-            `https://polyglot-pioneers-academy-server.vercel.app/users/${id}`
-          )
+          .delete(`http://localhost:3000/users/${id}`)
           .then((result) => {
             console.log(result);
             Swal.fire("Deleted!", "User has been deleted.", "success");

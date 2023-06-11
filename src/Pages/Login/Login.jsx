@@ -44,7 +44,7 @@ const Login = () => {
           email,
           image: photoURL,
         };
-        fetch("https://polyglot-pioneers-academy-server.vercel.app/users", {
+        fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -53,12 +53,11 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.insertedId || data.message) {
               Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "You have been logged in successfully.",
+                title: "User created successfully.",
                 showConfirmButton: false,
                 timer: 1500,
               });

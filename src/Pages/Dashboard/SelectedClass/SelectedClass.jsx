@@ -5,12 +5,12 @@ import SelectedClassRow from "./SelectedClassRow";
 
 const SelectedClass = () => {
   const { user, loading } = useAuth();
-  const { data: selectedClass = [] } = useQuery({
+  const { data: selectedClass = [], refetch } = useQuery({
     queryKey: ["selected class"],
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
-        `https://polyglot-pioneers-academy-server.vercel.app/selectedclass?studentEmail=${user?.email}`
+        `http://localhost:3000/selectedclass?studentEmail=${user?.email}`
       );
       return res.data;
     },
@@ -57,6 +57,7 @@ const SelectedClass = () => {
                   key={course._id}
                   index={index}
                   course={course}
+                  refetch={refetch}
                 />
               );
             })}

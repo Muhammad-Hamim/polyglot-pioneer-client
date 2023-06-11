@@ -1,7 +1,9 @@
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
+import Swal from "sweetalert2";
+import axios from "axios";
 
-const SelectedClassRow = ({ course, index }) => {
+const SelectedClassRow = ({ course, index, refetch }) => {
   const {
     _id,
     image,
@@ -12,9 +14,31 @@ const SelectedClassRow = ({ course, index }) => {
     instructor,
     available_seats,
   } = course;
-  const handleDelete = (id) => {
+  const handleClassDelete = (id) => {
     console.log(id);
-  }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/selectedclass/${id}`)
+          .then((result) => {
+            console.log(result);
+            refetch();
+            Swal.fire("Deleted!", "This class has been deleted", "success");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
+  };
   return (
     <tr className="bg-white border-b hover:bg-gray-50 text-center">
       <td className="w-4 p-4">
@@ -58,7 +82,7 @@ const SelectedClassRow = ({ course, index }) => {
       <td className="px-6 py-4">
         <div className="flex gap-2 flex-col">
           <button className="btn w-full">Pay</button>
-          <button onClick={() => handleDelete(_id)} className="btn">
+          <button onClick={() => handleClassDelete(_id)} className="btn">
             Delete
           </button>
         </div>

@@ -1,18 +1,39 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import UserRow from "./UserRow";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAuth from "../../../Hooks/useAuth";
+// import axios from "axios";
 
 const ManageUsers = () => {
+  const { loading } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  // const token = localStorage.getItem("jwt-access-token");
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
+    enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get(
-        "https://polyglot-pioneers-academy-server.vercel.app/users"
-      );
-      return res.data;
+      const res = await axiosSecure.get(`/users`);
+      return await res.data;
     },
   });
+  // const token = localStorage.getItem("jwt-access-token");
+  // const { data: users = [], refetch } = useQuery({
+  //   queryKey: ["users"],
+  //   enabled: !loading,
+  //   queryFn: async () => {
+  //     const res = await fetch(`http://localhost:3000/users`, {
+  //       headers: {
+  //         authorization: `bearer ${token}`,
+  //       },
+  //     });
+  //     return await res.json();
+  //   },
+  // });
+
+  // console.log(token);
   console.log(users);
+  
 
   const adminUsers = users.filter((user) => user.role === "Admin");
   const instructorUsers = users.filter((user) => user.role === "Instructor");

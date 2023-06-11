@@ -73,9 +73,7 @@ export const router = createBrowserRouter([
         path: "myclasses/editmyclass/:id",
         element: <EditMyClass />,
         loader: ({ params }) =>
-          fetch(
-            `https://polyglot-pioneers-academy-server.vercel.app/classes/${params.id}`
-          ),
+          fetch(`http://localhost:3000/classes/${params.id}`),
       },
     ],
   },

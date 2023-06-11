@@ -6,12 +6,21 @@ import { AiFillHome } from "react-icons/ai";
 import { BiPlus, BiEdit } from "react-icons/bi";
 import { HiAcademicCap } from "react-icons/hi2";
 import { IoMdMail, IoMdSchool } from "react-icons/io";
+import { FiLogOut } from "react-icons/fi";
+import useAdmin from "../Hooks/useAdmin";
+import useInstructor from "../Hooks/useInstructor";
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  const isStudent = true;
-  const isInstructor = false;
-  const isAdmin = false;
+  const { user, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  // const isInstructor = false;
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   const adminItem = (
     <>
       <li>
@@ -90,7 +99,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="divider"></div>
-            {isStudent && studentItem}
+            {!isAdmin && !isInstructor && studentItem}
             {isInstructor && instructorItem}
             {isAdmin && adminItem}
             <div className="divider"></div>
@@ -118,11 +127,14 @@ const Dashboard = () => {
                 Contact Us
               </NavLink>
             </li>
-            <li className="hover:text-primary duration-150">
-              <NavLink to="/contact">
-                <IoMdMail />
+            <li
+              onClick={handleLogout}
+              className="hover:text-primary duration-150">
+              <button>
+                {" "}
+                <FiLogOut />
                 Logout
-              </NavLink>
+              </button>
             </li>
           </ul>
         </div>

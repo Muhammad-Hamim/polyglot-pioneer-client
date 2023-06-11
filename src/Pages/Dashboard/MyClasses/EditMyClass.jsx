@@ -17,9 +17,7 @@ const EditMyClass = () => {
   const { data: editClassData = [], refetch } = useQuery({
     queryKey: ["edited class"],
     queryFn: async () => {
-      const res = await axios.get(
-        `https://polyglot-pioneers-academy-server.vercel.app/classes/${id}`
-      );
+      const res = await axios.get(`http://localhost:3000/classes/${id}`);
       return res.data;
     },
   });
@@ -52,16 +50,13 @@ const EditMyClass = () => {
             status: "pending",
           };
           console.log(classInfo);
-          fetch(
-            `https://polyglot-pioneers-academy-server.vercel.app/classes/${_id}`,
-            {
-              method: "PATCH",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(classInfo),
-            }
-          )
+          fetch(`http://localhost:3000/classes/${_id}`, {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(classInfo),
+          })
             .then((res) => res.json())
             .then((data) => {
               console.log(data);

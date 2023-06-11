@@ -18,15 +18,19 @@ const ClassCard = ({ item }) => {
   } = item;
   const handleSelectClass = () => {
     const selectItem = {
-      ...item,
+      image,
+      title,
+      price,
+      instructor,
+      enrolled_students,
+      description,
+      available_seats,
+      rating,
       stuName: user.displayName,
       stuEmail: user.email,
     };
     axios
-      .post(
-        "https://polyglot-pioneers-academy-server.vercel.app/selectedclass",
-        selectItem
-      )
+      .post("http://localhost:3000/selectedclass", selectItem)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {

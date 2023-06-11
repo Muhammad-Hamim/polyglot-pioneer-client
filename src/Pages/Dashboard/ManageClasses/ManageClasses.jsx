@@ -9,9 +9,7 @@ const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axios.get(
-        "https://polyglot-pioneers-academy-server.vercel.app/classes"
-      );
+      const res = await axios.get("http://localhost:3000/classes");
       return res.data;
     },
   });
@@ -23,16 +21,13 @@ const ManageClasses = () => {
   };
   const sendFeedback = (data) => {
     console.log(data.feedback);
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/classes/feedback/${feedbackID}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ feedback: data.feedback }),
-      }
-    )
+    fetch(`http://localhost:3000/classes/feedback/${feedbackID}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ feedback: data.feedback }),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

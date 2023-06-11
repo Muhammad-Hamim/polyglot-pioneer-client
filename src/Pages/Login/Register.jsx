@@ -41,16 +41,13 @@ const Register = () => {
                   email,
                   image: imgURL,
                 };
-                fetch(
-                  "https://polyglot-pioneers-academy-server.vercel.app/users",
-                  {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                    body: JSON.stringify(userInfo),
-                  }
-                )
+                fetch("http://localhost:3000/users", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(userInfo),
+                })
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.insertedId) {
@@ -80,7 +77,7 @@ const Register = () => {
           email,
           image: photoURL,
         };
-        fetch("https://polyglot-pioneers-academy-server.vercel.app/users", {
+        fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -90,7 +87,6 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId || data.message) {
-              reset();
               Swal.fire({
                 position: "center",
                 icon: "success",

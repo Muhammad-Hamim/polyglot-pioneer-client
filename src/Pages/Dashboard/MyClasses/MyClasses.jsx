@@ -11,7 +11,7 @@ const MyClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
-        `https://polyglot-pioneers-academy-server.vercel.app/classes?instructorEmail=${user?.email}`
+        `http://localhost:3000/classes?instructorEmail=${user?.email}`
       );
       return res.data;
     },

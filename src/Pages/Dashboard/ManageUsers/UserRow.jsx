@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const UserRow = ({ user, index, refetch }) => {
   const { name, image, email, _id, role } = user;
   const [adminDisable, setAdminDisable] = useState(false);
   const [instructorDisable, setInstructorDisable] = useState(false);
+  const [axiosSecure] = useAxiosSecure();
   useEffect(() => {
     if (role === "Admin") {
       setAdminDisable(true);
@@ -16,16 +18,13 @@ const UserRow = ({ user, index, refetch }) => {
     }
   }, [role]);
   const handleMakeAdmin = (id) => {
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/users/admin/${id}`,
-      {
-        method: "PATCH",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
+    axiosSecure
+      .patch(
+        `https://polyglot-pioneers-academy-server.vercel.app/users/admin/${id}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
           refetch();
           Swal.fire({
             position: "center",
@@ -38,16 +37,13 @@ const UserRow = ({ user, index, refetch }) => {
       });
   };
   const handleMakeInstructor = (id) => {
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/users/instructor/${id}`,
-      {
-        method: "PATCH",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
+    axios
+      .patch(
+        `https://polyglot-pioneers-academy-server.vercel.app/users/instructor/${id}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
           refetch();
           Swal.fire({
             position: "center",
@@ -70,14 +66,16 @@ const UserRow = ({ user, index, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
+        axiosSecure
           .delete(
             `https://polyglot-pioneers-academy-server.vercel.app/users/${id}`
           )
-          .then((result) => {
-            console.log(result);
-            Swal.fire("Deleted!", "User has been deleted.", "success");
-            refetch();
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              Swal.fire("Deleted!", "User has been deleted.", "success");
+              refetch();
+            }
           })
           .catch((error) => {
             console.log(error);

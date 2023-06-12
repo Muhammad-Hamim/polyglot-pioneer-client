@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
-
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 const ClassRow = ({ course, refetch, index, feedbackModal }) => {
-  // Class Image, Class name, Instructor name, Instructor email, Available seats, Price, Status(pending/approved/denied) 3 buttons( Approve, Deny and send feedback)
+  const [axiosSecure] = useAxiosSecure();
   const {
     _id,
     image,
@@ -13,16 +13,13 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
     available_seats,
   } = course;
   const handleApprove = (id) => {
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/classes/approve/${id}`,
-      {
-        method: "PATCH",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
+    axiosSecure
+      .patch(
+        `https://polyglot-pioneers-academy-server.vercel.app/classes/approve/${id}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
           refetch();
           Swal.fire({
             position: "center",
@@ -45,16 +42,16 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
       confirmButtonText: "Yes, deny it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://polyglot-pioneers-academy-server.vercel.app/classes/deny/${id}`,
-          {
-            method: "PATCH",
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.modifiedCount) {
+        axiosSecure
+          .patch(
+            `https://polyglot-pioneers-academy-server.vercel.app/classes/deny/${id}`,
+            {
+              method: "PATCH",
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount) {
               refetch();
               Swal.fire({
                 position: "center",

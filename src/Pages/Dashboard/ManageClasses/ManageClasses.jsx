@@ -25,20 +25,14 @@ const ManageClasses = () => {
   };
   const sendFeedback = (data) => {
     console.log(data.feedback);
-    fetch(
-      `https://polyglot-pioneers-academy-server.vercel.app/classes/feedback/${feedbackID}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ feedback: data.feedback }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
+    axiosSecure
+      .patch(
+        `https://polyglot-pioneers-academy-server.vercel.app/classes/feedback/${feedbackID}`,
+        { feedback: data.feedback }
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
           Swal.fire({
             position: "center",
             icon: "success",

@@ -3,11 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { FaLock } from "react-icons/fa";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 
 const AddClass = () => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
   const imgHostingurl = `https://api.imgbb.com/1/upload?&key=${imgHostingToken}`;
   const {
     register,
@@ -40,17 +41,13 @@ const AddClass = () => {
             status: "pending",
           };
           console.log(classInfo);
-          fetch("https://polyglot-pioneers-academy-server.vercel.app/classes", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(classInfo),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              if (data.insertedId) {
+          axiosSecure
+            .post(
+              "https://polyglot-pioneers-academy-server.vercel.app/classes",
+              classInfo
+            )
+            .then((res) => {
+              if (res.data.insertedId) {
                 reset();
                 Swal.fire({
                   position: "center",

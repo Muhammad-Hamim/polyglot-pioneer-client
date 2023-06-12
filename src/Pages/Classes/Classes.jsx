@@ -8,13 +8,13 @@ const Classes = () => {
   const { loading } = useAuth();
   const { data: classes, isLoading } = useQuery({
     queryKey: [],
-    enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
         "https://polyglot-pioneers-academy-server.vercel.app/classes/home"
       );
       return res.data;
     },
+    enabled: !loading,
   });
   // const displayClasses = classes.filter(
   //   (singleClass) => singleClass.status === "approve"

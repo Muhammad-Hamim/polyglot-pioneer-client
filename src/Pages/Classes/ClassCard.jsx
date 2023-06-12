@@ -1,11 +1,12 @@
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
-import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
 const ClassCard = ({ item }) => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
   const navigate = useNavigate();
   const {
     _id,
@@ -48,7 +49,7 @@ const ClassCard = ({ item }) => {
       stuName: user.displayName,
       stuEmail: user.email,
     };
-    axios
+    axiosSecure
       .post(
         "https://polyglot-pioneers-academy-server.vercel.app/selectedclass",
         selectItem

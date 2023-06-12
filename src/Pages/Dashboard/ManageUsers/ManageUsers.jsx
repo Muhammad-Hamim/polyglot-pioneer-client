@@ -17,21 +17,7 @@ const ManageUsers = () => {
       return await res.data;
     },
   });
-  // const token = localStorage.getItem("jwt-access-token");
-  // const { data: users = [], refetch } = useQuery({
-  //   queryKey: ["users"],
-  //   enabled: !loading,
-  //   queryFn: async () => {
-  //     const res = await fetch(`http://localhost:3000/users`, {
-  //       headers: {
-  //         authorization: `bearer ${token}`,
-  //       },
-  //     });
-  //     return await res.json();
-  //   },
-  // });
-
-  // console.log(token);
+  
   console.log(users);
   
 

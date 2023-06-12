@@ -5,7 +5,7 @@ import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import "./CheckoutForm.css";
 
-const CheckOut = ({ price, selectedClass }) => {
+const CheckoutForm = ({ price, selectedClass }) => {
   const stripe = useStripe();
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
@@ -74,13 +74,18 @@ const CheckOut = ({ price, selectedClass }) => {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
+        date: new Date(),
         quantity: selectedClass.length,
-        classes: selectedClass.map((item) => item.title),
-        classId: selectedClass.map((item) => item._id),
+        classTitle: selectedClass.map((item) => item.title),
+        selectedClassId: selectedClass.map((item) => item._id),
+        classId: selectedClass.map((item) => item.classId),
       };
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
+        console.log(
+          res.data.insertedResult.insertedId &&
+            res.data.deletedResult.deletedCount > 0
+        );
+        if (res.data) {
           Swal.fire({
             position: "center",
             icon: "success",
@@ -132,4 +137,4 @@ const CheckOut = ({ price, selectedClass }) => {
   );
 };
 
-export default CheckOut;
+export default CheckoutForm;

@@ -1,5 +1,5 @@
 import { Elements } from "@stripe/react-stripe-js";
-import CheckOut from "./CheckOut";
+import CheckOut from "./CheckutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import useSelectedClass from "../../../Hooks/useSelectedClass";
 
@@ -17,7 +17,7 @@ const Payment = () => {
   return (
     <div className="max-w-screen-xl mx-auto py-24 flex justify-center items-center min-h-screen">
       <Elements stripe={stripePromise}>
-        <CheckOut price={price}></CheckOut>
+        <CheckOut selectedClass={selectedClass} price={price}></CheckOut>
       </Elements>
     </div>
   );

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const ClassCard = ({ item }) => {
   const { user } = useAuth();
   const {
+    _id,
     image,
     title,
     price,
@@ -20,6 +21,7 @@ const ClassCard = ({ item }) => {
     const selectItem = {
       image,
       title,
+      classId: _id,
       price,
       instructor,
       enrolled_students,

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Hero from "../Pages/Home/Hero/Hero";
 import TopCategory from "../Pages/Home/TopCategory/TopCategory";
 import PopularClass from "../Pages/Home/PopularClass/PopularClass";
+import PopularInstructor from "../Pages/Home/PopularInstructor/PopularInstructor";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Hero></Hero>
         <TopCategory></TopCategory>
         <PopularClass />
+        <PopularInstructor />
       </div>
     </>
   );

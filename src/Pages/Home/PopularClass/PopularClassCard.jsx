@@ -1,14 +1,9 @@
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
-import axios from "axios";
-import useAuth from "../../Hooks/useAuth";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-const ClassCard = ({ item }) => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
+import { Link } from "react-router-dom";
+
+const PopularClassCard = ({ item }) => {
   const {
-    _id,
     image,
     title,
     price,
@@ -19,53 +14,6 @@ const ClassCard = ({ item }) => {
     available_seats,
     rating,
   } = item;
-  const handleSelectClass = () => {
-    if (!user) {
-      return Swal.fire({
-        title: "User doesn't found!",
-        text: "Login first to select a class!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Login",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login");
-        }
-      });
-    }
-    const selectItem = {
-      image,
-      title,
-      classId: _id,
-      price,
-      instructor,
-      enrolled_students,
-      description,
-      available_seats,
-      rating,
-      stuName: user.displayName,
-      stuEmail: user.email,
-    };
-    axios
-      .post("http://localhost:3000/selectedclass", selectItem)
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your class has been selected",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   return (
     <div
       className={`card ${
@@ -118,16 +66,15 @@ const ClassCard = ({ item }) => {
               activeColor="#4f46e5"
             />
           </h3>
-          <button
-            onClick={handleSelectClass}
-            disabled={available_seats == 0 ? true : false}
-            className="badge badge-primary hover:badge-outline">
-            SELECT CLASS
-          </button>
+          <Link to="/classes">
+            <button className="badge badge-primary hover:badge-outline">
+              SELECT CLASS
+            </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default ClassCard;
+export default PopularClassCard;

@@ -17,7 +17,9 @@ const SelectedClass = () => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of table header */}
-          <h2 className="text-2xl font-bold">Total Price: ${total}</h2>
+          <h2 className="text-2xl font-bold">
+            Total Price: ${parseFloat(total.toFixed(2))}
+          </h2>
           <Link to="payment">
             <button className="btn w-full btn-primary">Pay</button>
           </Link>

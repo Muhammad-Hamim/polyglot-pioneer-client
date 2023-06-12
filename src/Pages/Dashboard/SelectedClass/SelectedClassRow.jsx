@@ -81,7 +81,6 @@ const SelectedClassRow = ({ course, index, refetch }) => {
       </td>
       <td className="px-6 py-4">
         <div className="flex gap-2 flex-col">
-          <button className="btn w-full">Pay</button>
           <button onClick={() => handleClassDelete(_id)} className="btn">
             Delete
           </button>

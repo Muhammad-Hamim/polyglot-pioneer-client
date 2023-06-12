@@ -17,6 +17,7 @@ import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import Contact from "../Pages/Contact/Contact";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "selectedclass",
         element: <SelectedClass />,
+      },
+      {
+        path: "enrolledclass",
+        element: <EnrolledClass />,
       },
       {
         path: "selectedclass/payment",

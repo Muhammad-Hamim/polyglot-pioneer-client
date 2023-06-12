@@ -50,20 +50,14 @@ const EditMyClass = () => {
             status: "pending",
           };
           console.log(classInfo);
-          fetch(
-            `https://polyglot-pioneers-academy-server.vercel.app/classes/${_id}`,
-            {
-              method: "PATCH",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(classInfo),
-            }
-          )
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              if (data.modifiedCount) {
+          axiosSecure
+            .patch(
+              `https://polyglot-pioneers-academy-server.vercel.app/classes/${_id}`,
+              classInfo
+            )
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.modifiedCount) {
                 refetch();
                 Swal.fire({
                   position: "center",

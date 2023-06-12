@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import MyClassRow from "./MyClassRow";
 import { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { user, loading } = useAuth();
@@ -24,6 +25,9 @@ const MyClasses = () => {
   };
   return (
     <div className="max-w-screen-xl mx-auto py-24">
+      <Helmet>
+        <title>PPA | My classes</title>
+      </Helmet>
       <div>
         <h2 className="text-center mb-6 text-3xl font-semibold">
           All class added by you

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import PayRow from "./PayRow";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
   const { user, loading } = useAuth();
@@ -17,6 +18,9 @@ const PaymentHistory = () => {
   console.log(paymentData);
   return (
     <div className="max-w-screen-xl mx-auto py-24">
+      <Helmet>
+        <title>PPA | Payment History</title>
+      </Helmet>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of header */}

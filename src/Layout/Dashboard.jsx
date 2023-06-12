@@ -9,6 +9,7 @@ import { IoMdMail, IoMdSchool } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
 import useAdmin from "../Hooks/useAdmin";
 import useInstructor from "../Hooks/useInstructor";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const { user, logOut } = useAuth();
@@ -70,6 +71,9 @@ const Dashboard = () => {
   );
   return (
     <div>
+      <Helmet>
+        <title>PPA | User Dashboard</title>
+      </Helmet>
       <div className="drawer drawer-mobile lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">

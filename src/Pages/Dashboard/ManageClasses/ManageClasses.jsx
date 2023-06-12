@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const { user, loading } = useAuth();
@@ -46,6 +47,9 @@ const ManageClasses = () => {
   };
   return (
     <div className="max-w-screen-xl mx-auto py-24">
+      <Helmet>
+        <title>PPA | Manage class</title>
+      </Helmet>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of table header */}

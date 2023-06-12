@@ -2,6 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import useSelectedClass from "../../../Hooks/useSelectedClass";
 import CheckoutForm from "./CheckoutForm";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 
@@ -16,6 +17,9 @@ const Payment = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto py-24 flex justify-center items-center min-h-screen">
+      <Helmet>
+        <title>PPA | Payment</title>
+      </Helmet>
       <Elements stripe={stripePromise}>
         <CheckoutForm
           selectedClass={selectedClass}

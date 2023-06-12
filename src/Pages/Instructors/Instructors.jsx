@@ -3,6 +3,7 @@ import Banner from "../../Shared/Banner/Banner";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import InstCard from "./InstCard";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const { loading } = useAuth();
@@ -21,6 +22,9 @@ const Instructors = () => {
   }
   return (
     <div className="dark:bg-gray-900">
+      <Helmet>
+        <title>PPA | Instructor</title>
+      </Helmet>
       <div>
         <Banner
           title="Meet Our Expert Instructors"

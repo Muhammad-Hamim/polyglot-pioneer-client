@@ -74,7 +74,7 @@ const EditMyClass = () => {
   return (
     <>
       <Helmet>
-        <title>PPA | Add class</title>
+        <title>PPA | Edit class</title>
       </Helmet>
       <div className="max-w-screen-xl mx-auto py-24">
         <div className="p-8 w-full lg:p-20 border-indigo-500 md:border-[1px] md:shadow-xl rounded-lg">

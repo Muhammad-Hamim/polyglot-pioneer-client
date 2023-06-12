@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import UserRow from "./UserRow";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 // import axios from "axios";
 
 const ManageUsers = () => {
@@ -17,9 +18,8 @@ const ManageUsers = () => {
       return await res.data;
     },
   });
-  
+
   console.log(users);
-  
 
   const adminUsers = users.filter((user) => user.role === "Admin");
   const instructorUsers = users.filter((user) => user.role === "Instructor");
@@ -27,6 +27,9 @@ const ManageUsers = () => {
     users.length - adminUsers.length - instructorUsers.length;
   return (
     <div className="max-w-screen-xl mx-auto py-24">
+      <Helmet>
+        <title>PPA | Manage users</title>
+      </Helmet>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex p-4 text-lg font-medium items-center justify-between bg-indigo-50">
           {/* outside of header */}

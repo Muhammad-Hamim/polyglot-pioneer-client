@@ -3,6 +3,7 @@ import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import Banner from "../../Shared/Banner/Banner";
 import ClassCard from "./ClassCard";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const { loading } = useAuth();
@@ -25,6 +26,9 @@ const Classes = () => {
   }
   return (
     <div className="dark:bg-slate-900">
+      <Helmet>
+        <title>PPA | Classes</title>
+      </Helmet>
       <div>
         <Banner
           title="Explore Our Diverse Range of Classes"

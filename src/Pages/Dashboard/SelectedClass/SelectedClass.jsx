@@ -1,6 +1,7 @@
 import SelectedClassRow from "./SelectedClassRow";
 import useSelectedClass from "../../../Hooks/useSelectedClass";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const SelectedClass = () => {
   const [selectedClass, refetch] = useSelectedClass();
   const total = selectedClass.reduce(
@@ -9,6 +10,9 @@ const SelectedClass = () => {
   );
   return (
     <div className="max-w-screen-xl mx-auto py-24">
+      <Helmet>
+        <title>PPA | Selected Class</title>
+      </Helmet>
       <div>
         <h2 className="text-center mb-6 text-3xl font-semibold">
           All your selected class

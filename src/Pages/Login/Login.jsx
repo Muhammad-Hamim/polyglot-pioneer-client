@@ -5,9 +5,11 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const Login = () => {
   const { Login, googleSignIn } = useAuth();
+  const [errorMessage, serErrorMessage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -32,6 +34,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        serErrorMessage(error.message);
       });
   };
 
@@ -66,7 +69,10 @@ const Login = () => {
             }
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        serErrorMessage(error.message);
+      });
   };
   return (
     <>
@@ -112,6 +118,7 @@ const Login = () => {
               )}
             </div>
             <div>
+              <p className="mt-4 text-error">{errorMessage}</p>
               <p>
                 Don&#39;t have an account?{" "}
                 <Link to="/register">

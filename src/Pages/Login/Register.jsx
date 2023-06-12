@@ -5,10 +5,12 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const imgHostingToken = import.meta.env.VITE_imgHostingToken;
 const Register = () => {
   const { googleSignIn, createUser, updateUserProfile } = useAuth();
+  const [errorMessage, serErrorMessage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -73,7 +75,10 @@ const Register = () => {
                   });
               });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+              console.log(error);
+              serErrorMessage(error.message);
+            });
         }
       });
   };
@@ -108,7 +113,10 @@ const Register = () => {
             }
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        serErrorMessage(error.message);
+      });
   };
   return (
     <>
@@ -222,6 +230,7 @@ const Register = () => {
               )}
             </div>
             <div>
+              <p className="mt-4 text-error">{errorMessage}</p>
               <p>
                 Already have an account?{" "}
                 <Link to="/login">

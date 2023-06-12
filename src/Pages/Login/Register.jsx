@@ -18,8 +18,14 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
   } = useForm();
+  const password = watch("password");
+  const confirmPassword = watch("confirmPassword");
   const onSubmit = (data) => {
+    if (password !== confirmPassword) {
+      return;
+    }
     const formData = new FormData();
     formData.append("image", data.image[0]);
     fetch(imgHostingurl, {
@@ -106,7 +112,7 @@ const Register = () => {
       <Helmet>
         <title>PPA | Register</title>
       </Helmet>
-      <div className="flex place-content-center place-items-center w-full min-h-screen">
+      <div className="flex py-5 place-content-center place-items-center w-full min-h-screen">
         <div className="p-8 w-full lg:w-2/6 lg:p-20 border-indigo-500 md:border-[1px] md:shadow-xl rounded-lg">
           <h2 className="text-indigo-500 text-3xl text-center font-bold">
             Please Register
@@ -166,7 +172,11 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                })}
                 type="password"
                 placeholder="Password"
                 className="px-5 py-3 focus:border-indigo-500 border-[1px] rounded-md outline-none"
@@ -174,6 +184,37 @@ const Register = () => {
               {errors.password?.type === "required" && (
                 <p role="alert" className="text-red-400 mt-3">
                   password is required
+                </p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-red-600">Password must be 6 characters</p>
+              )}
+              {errors.password?.type === "pattern" && (
+                <p className="text-red-600">
+                  Password must have one Uppercase, one number and one special
+                  character.
+                </p>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                {...register("confirmPassword", { required: true })}
+                type="password"
+                placeholder="retype your password"
+                className="px-5 py-3 focus:border-indigo-500 border-[1px] rounded-md outline-none"
+              />
+              {password !== confirmPassword && (
+                <p role="alert" className="text-red-400 mt-3">
+                  Passwords do not match
+                </p>
+              )}
+
+              {errors.confirmPassword?.type === "required" && (
+                <p role="alert" className="text-red-400 mt-3">
+                  confirm password is required
                 </p>
               )}
             </div>

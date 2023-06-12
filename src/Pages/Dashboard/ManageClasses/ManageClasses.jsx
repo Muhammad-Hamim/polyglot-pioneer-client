@@ -4,15 +4,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAuth from "../../../Hooks/useAuth";
 
 const ManageClasses = () => {
+  const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/classes");
+      const res = await axiosSecure.get("/classes/manageclasses");
       return res.data;
     },
+    enabled: !loading && !!user?.email,
   });
   const { register, handleSubmit } = useForm();
   const [feedbackID, setFeedbackID] = useState();

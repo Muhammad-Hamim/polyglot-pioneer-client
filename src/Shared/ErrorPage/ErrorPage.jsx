@@ -1,5 +1,4 @@
-import Lottie from "react-lottie";
-import bg from "../../assets/Error.json";
+import error from "../../assets/error.jpg";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 const ErrorPage = () => {
@@ -13,8 +12,9 @@ const ErrorPage = () => {
           </button>
         </NavLink>
       </div>
-      <Lottie
-        options={{ animationData: bg, loop: true, autoplay: true }}></Lottie>
+      <img className="w-full h-full" src={error} alt="" />
+      {/* <Lottie
+        options={{ animationData: bg, loop: true, autoplay: true }}></Lottie> */}
     </div>
   );
 };

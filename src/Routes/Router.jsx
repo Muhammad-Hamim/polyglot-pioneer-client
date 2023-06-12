@@ -14,6 +14,8 @@ import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import EditMyClass from "../Pages/Dashboard/MyClasses/EditMyClass";
 import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import Contact from "../Pages/Contact/Contact";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ export const router = createBrowserRouter([
         path: "/classes",
         element: <Classes></Classes>,
       },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
     ],
   },
   {
@@ -58,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "selectedclass",
         element: <SelectedClass />,
+      },
+      {
+        path: "selectedclass/payment",
+        element: <Payment />,
       },
       {
         path: "manageclasses",

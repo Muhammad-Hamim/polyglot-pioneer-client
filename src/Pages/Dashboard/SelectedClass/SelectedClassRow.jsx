@@ -27,7 +27,9 @@ const SelectedClassRow = ({ course, index, refetch }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/selectedclass/${id}`)
+          .delete(
+            `https://polyglot-pioneers-academy-server.vercel.app/selectedclass/${id}`
+          )
           .then((result) => {
             console.log(result);
             refetch();

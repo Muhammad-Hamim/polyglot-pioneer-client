@@ -47,13 +47,16 @@ const Register = () => {
                   email,
                   image: imgURL,
                 };
-                fetch("http://localhost:3000/users", {
-                  method: "POST",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify(userInfo),
-                })
+                fetch(
+                  "https://polyglot-pioneers-academy-server.vercel.app/users",
+                  {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(userInfo),
+                  }
+                )
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.insertedId) {
@@ -83,7 +86,7 @@ const Register = () => {
           email,
           image: photoURL,
         };
-        fetch("http://localhost:3000/users", {
+        fetch("https://polyglot-pioneers-academy-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

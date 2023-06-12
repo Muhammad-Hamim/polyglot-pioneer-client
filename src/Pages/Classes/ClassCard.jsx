@@ -49,7 +49,10 @@ const ClassCard = ({ item }) => {
       stuEmail: user.email,
     };
     axios
-      .post("http://localhost:3000/selectedclass", selectItem)
+      .post(
+        "https://polyglot-pioneers-academy-server.vercel.app/selectedclass",
+        selectItem
+      )
       .then((res) => {
         console.log(res);
         if (res.status === 200) {

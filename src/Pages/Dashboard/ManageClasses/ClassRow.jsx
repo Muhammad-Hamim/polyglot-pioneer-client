@@ -13,9 +13,12 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
     available_seats,
   } = course;
   const handleApprove = (id) => {
-    fetch(`http://localhost:3000/classes/approve/${id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://polyglot-pioneers-academy-server.vercel.app/classes/approve/${id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -42,9 +45,12 @@ const ClassRow = ({ course, refetch, index, feedbackModal }) => {
       confirmButtonText: "Yes, deny it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/classes/deny/${id}`, {
-          method: "PATCH",
-        })
+        fetch(
+          `https://polyglot-pioneers-academy-server.vercel.app/classes/deny/${id}`,
+          {
+            method: "PATCH",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

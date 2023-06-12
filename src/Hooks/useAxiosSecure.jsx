@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://polyglot-pioneers-academy-server.vercel.app",
 });
 const useAxiosSecure = () => {
   const { logOut } = useAuth();

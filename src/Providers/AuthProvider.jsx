@@ -52,7 +52,9 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         axios
-          .post(`http://localhost:3000/jwt`, { email: currentUser?.email })
+          .post(`https://polyglot-pioneers-academy-server.vercel.app/jwt`, {
+            email: currentUser?.email,
+          })
           .then((data) => {
             console.log(data);
             const token = data.data.token;

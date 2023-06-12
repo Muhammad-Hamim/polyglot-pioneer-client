@@ -40,7 +40,7 @@ const AddClass = () => {
             status: "pending",
           };
           console.log(classInfo);
-          fetch("http://localhost:3000/classes", {
+          fetch("https://polyglot-pioneers-academy-server.vercel.app/classes", {
             method: "POST",
             headers: {
               "content-type": "application/json",
